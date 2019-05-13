@@ -1,4 +1,6 @@
 import React from 'react';
+import threeEntryPoint from "../threeJS/threeEntryPoint";
+
 
 function App(){
   return(
