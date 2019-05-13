@@ -10,8 +10,8 @@ export default scene => {
 
   function update(time) {
 
-    light.position.x = 25 * Math.sin(Date.now() / 40400);
-    light.position.z = 25 * Math.cos(Date.now() / 40400);
+    light.position.x = 25 * Math.sin(Date.now() / 31536000000);
+    light.position.z = 25 * Math.cos(Date.now() / 31536000000);
   }
 
   return {
