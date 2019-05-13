@@ -101,11 +101,11 @@ export default scene => {
     iss.position.x = 0.53125 * Math.sin(Date.now() / 2400);
     iss.position.z = 0.53125 * Math.cos(Date.now() / 2400);
 
-    moon.position.x = .8 * Math.sin(Date.now() / 15400);
-    moon.position.z = .8 * Math.cos(Date.now() / 15400);
+    moon.position.x = 3 * Math.sin(Date.now() / 15400);
+    moon.position.z = 3 * Math.cos(Date.now() / 15400);
 
-    mars.position.x = 5 * Math.sin(Date.now() / 40400);
-    mars.position.z = 5 * Math.cos(Date.now() / 40400);
+    mars.position.x = 25 * Math.sin(Date.now() / 40400) + 15 * Math.sin(Date.now() / 4040);
+    mars.position.z = 25 * Math.cos(Date.now() / 40400) + 15 * Math.cos(Date.now() / 4040);
 
     sun.position.x = 25 * Math.sin(Date.now() / 40400);
     sun.position.z = 25 * Math.cos(Date.now() / 40400);
