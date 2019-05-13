@@ -9,9 +9,9 @@ function App(){
     <div>
       <Header/>
       <Switch>
-          <Route exact path='/' component={Home}/>
-          <Route component={Error404} />
-        </Switch>
+        <Route exact path='/' component={Home}/>
+        <Route component={Error404} />
+      </Switch>
     </div>
   );
 }
