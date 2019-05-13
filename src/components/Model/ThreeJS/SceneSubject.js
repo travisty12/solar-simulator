@@ -2,17 +2,17 @@ import * as THREE from 'three';
 
 
 export default scene => {
-
-  let geometry = new THREE.SphereBufferGeometry( 0.5, 30, 30 );
-  let texture = new THREE.TextureLoader( ).load('https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg');
-  let material = new THREE.MeshPhongMaterial( {map: texture} );
-  material.bumpMap= new THREE.TextureLoader().load('https://richardandersson.net/wp-content/uploads/2016/08/Earth.Bump_21600x10800.jpg');
-  material.bumpScale = .05;
-  material.specularMap = new THREE.TextureLoader().load('http://blog.apoapsys.com/assets/melted-ice/melted-ice-specular-8192x4096.jpg');
-  material.specular  = new THREE.Color('grey');
+  //earth
+  let earthGeometry = new THREE.SphereBufferGeometry( 0.5, 30, 30 );
+  let earthTexture = new THREE.TextureLoader( ).load('https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg');
+  let earthMaterial = new THREE.MeshPhongMaterial( {map: earthTexture} );
+  earthMaterial.bumpMap= new THREE.TextureLoader().load('https://richardandersson.net/wp-content/uploads/2016/08/Earth.Bump_21600x10800.jpg');
+  earthMaterial.bumpScale = .05;
+  earthMaterial.specularMap = new THREE.TextureLoader().load('http://blog.apoapsys.com/assets/melted-ice/melted-ice-specular-8192x4096.jpg');
+  earthMaterial.specular  = new THREE.Color('grey');
 
   //city lights needs to be pushed in
-  material.cityMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg');
+  earthMaterial.cityMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg');
 
 
   let cloudGeometry   = new THREE.SphereGeometry(0.51, 32, 32);
@@ -23,7 +23,7 @@ export default scene => {
     transparent : true,
     depthWrite  : false,
   });
-
+  //earth end
   // create the iss inital shape
   let starGeometry  = new THREE.SphereGeometry(90, 32, 32);
   let starMaterial  = new THREE.MeshBasicMaterial();
@@ -70,33 +70,35 @@ export default scene => {
   let moon = new THREE.Mesh(moonGeometry, moonMaterial);
   let mars = new THREE.Mesh(marsGeometry, marsMaterial);
   let cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
-  let sphere = new THREE.Mesh(geometry, material );
+  let earth = new THREE.Mesh(earthGeometry, earthMaterial );
   let sun =  new THREE.Mesh(sunGeometry, sunMaterial );
   let sunCloudMesh = new THREE.Mesh(sunCloudGeometry, sunCloudMaterial);
-
   // better iss build plans
   //photo link
   // https://upload.wikimedia.org/wikipedia/commons/0/07/ISS_post-Nauka_installation_%283D_rendering%29.jpg
 
   //create a material, color or image texture
-  scene.add( sphere );
-  scene.add( cloudMesh );
-  scene.add( stars );
-  scene.add( iss );
+  scene.add(earth);
+  scene.add(cloudMesh);
+  scene.add(stars);
+  scene.add(iss);
   scene.add(moon);
   scene.add(mars);
   scene.add(sun);
   scene.add(sunCloudMesh);
-
+  console.log(sun)
   function update() {
-    sphere.rotation.y +=0.0005;
+    earth.rotation.y +=0.0005;
     cloudMesh.rotation.x += 0.0007;
     cloudMesh.rotation.y -= 0.0001;
     moon.rotation.y +=.0005;
     mars.rotation.y +=.005;
     sunCloudMesh.rotation.x += 0.07;
     sunCloudMesh.rotation.y -= 0.01;
-
+    moon.addEventListener("click", hello)
+    function hello(){
+      alert("hello")
+    }
     //overall positioning
     iss.position.x = 0.53125 * Math.sin(Date.now() / 2400);
     iss.position.z = 0.53125 * Math.cos(Date.now() / 2400);
