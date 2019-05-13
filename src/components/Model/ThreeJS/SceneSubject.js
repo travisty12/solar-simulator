@@ -25,7 +25,7 @@ export default scene => {
   });
 
   // create the iss inital shape
-  let starGeometry  = new THREE.SphereGeometry(90, 32, 32);
+  let starGeometry  = new THREE.SphereGeometry(200, 32, 32);
   let starMaterial  = new THREE.MeshBasicMaterial();
   starMaterial.map   = new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_stars_milky_way.jpg ');
   starMaterial.side  = THREE.BackSide;
@@ -52,12 +52,12 @@ export default scene => {
   marsMaterial.bumpScale = .005;
 
   //create sun
-  let sunGeometry = new THREE.SphereBufferGeometry(1, 30, 30 );
+  let sunGeometry = new THREE.SphereBufferGeometry(10, 30, 30 );
   let sunMaterial = new THREE.MeshPhongMaterial();
   sunMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_sun.jpg');
   sunMaterial.bumpMap= new THREE.TextureLoader().load('https://upload.wikimedia.org/wikipedia/commons/9/99/Map_of_the_full_sun.jpg');
   sunMaterial.bumpScale = .005;
-  let sunCloudGeometry   = new THREE.SphereGeometry(1, 32, 32);
+  let sunCloudGeometry   = new THREE.SphereGeometry(10, 32, 32);
   let sunCloudMaterial  = new THREE.MeshPhongMaterial({
     map     : new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_sun.jpg'),
     side        : THREE.DoubleSide,
@@ -66,6 +66,34 @@ export default scene => {
     depthWrite  : false,
   });
 
+  //create mercury
+  let mercuryGeometry = new THREE.SphereBufferGeometry(.3, 30, 30 );
+  let mercuryMaterial = new THREE.MeshPhongMaterial();
+  mercuryMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_atmosphere.jpg');
+  mercuryMaterial.bumpMap= new THREE.TextureLoader().load('https://astrogeology.usgs.gov/cache/images/5d2885caad2f1190994b2f1cd36c688d_Mars_MGS_MOLA_DEM_mosaic_global_1024.jpg');
+  mercuryMaterial.bumpScale = .005;
+
+  //create venus
+  let venusGeometry = new THREE.SphereBufferGeometry(.8, 30, 30 );
+  let venusMaterial = new THREE.MeshPhongMaterial();
+  venusMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
+  venusMaterial.bumpMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
+  venusMaterial.bumpScale = .05;
+
+  //create jupiter
+  let jupiterGeometry = new THREE.SphereBufferGeometry(5, 30, 30 );
+  let jupiterMaterial = new THREE.MeshPhongMaterial();
+  jupiterMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_jupiter.jpg');
+  jupiterMaterial.bumpMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
+  jupiterMaterial.bumpScale = .05;
+
+  //create saturn
+  let saturnGeometry = new THREE.SphereBufferGeometry(3, 30, 30 );
+  let saturnMaterial = new THREE.MeshPhongMaterial();
+  saturnMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_saturn.jpg');
+  saturnMaterial.bumpMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
+  saturnMaterial.bumpScale = .05;
+
 
   let moon = new THREE.Mesh(moonGeometry, moonMaterial);
   let mars = new THREE.Mesh(marsGeometry, marsMaterial);
@@ -73,7 +101,10 @@ export default scene => {
   let sphere = new THREE.Mesh(geometry, material );
   let sun =  new THREE.Mesh(sunGeometry, sunMaterial );
   let sunCloudMesh = new THREE.Mesh(sunCloudGeometry, sunCloudMaterial);
-
+  let mercury = new THREE.Mesh(mercuryGeometry, mercuryMaterial );
+  let venus = new THREE.Mesh(venusGeometry, venusMaterial );
+  let jupiter = new THREE.Mesh(jupiterGeometry, jupiterMaterial );
+  let saturn = new THREE.Mesh(saturnGeometry, saturnMaterial)
   // better iss build plans
   //photo link
   // https://upload.wikimedia.org/wikipedia/commons/0/07/ISS_post-Nauka_installation_%283D_rendering%29.jpg
@@ -87,6 +118,10 @@ export default scene => {
   scene.add(mars);
   scene.add(sun);
   scene.add(sunCloudMesh);
+  scene.add(mercury);
+  scene.add(venus);
+  scene.add(jupiter);
+  scene.add(saturn);
 
   function update() {
     sphere.rotation.y +=0.0005;
@@ -96,6 +131,10 @@ export default scene => {
     mars.rotation.y +=.005;
     sunCloudMesh.rotation.x += 0.07;
     sunCloudMesh.rotation.y -= 0.01;
+    mercury.rotation.y +=0.0005;
+    venus.rotation.y +=0.0005;
+    jupiter.rotation.y +=0.0005;
+    saturn.rotation.y +=0.0005;
 
     //overall positioning
     iss.position.x = 0.53125 * Math.sin(Date.now() / 2400);
@@ -109,8 +148,22 @@ export default scene => {
 
     sun.position.x = 25 * Math.sin(Date.now() / 40400);
     sun.position.z = 25 * Math.cos(Date.now() / 40400);
+
     sunCloudMesh.position.z = 25 * Math.cos(Date.now() / 40400);
     sunCloudMesh.position.x = 25 * Math.sin(Date.now() / 40400);
+
+    mercury.position.x = 23 * Math.sin(Date.now() / 40400) + 35 * Math.sin(Date.now() / 4040);
+    mercury.position.z = 23 * Math.cos(Date.now() / 40400) + 35 * Math.cos(Date.now() / 4040);
+
+    venus.position.x = 23 * Math.sin(Date.now() / 40400) + 50 * Math.sin(Date.now() / 4040);
+    venus.position.z = 23 * Math.cos(Date.now() / 40400) + 50 * Math.cos(Date.now() / 4040);
+
+    jupiter.position.x = 23 * Math.sin(Date.now() / 40400) + 70 * Math.sin(Date.now() / 4040);
+    jupiter.position.z = 23 * Math.cos(Date.now() / 40400) + 70 * Math.cos(Date.now() / 4040);
+
+    saturn.position.x = 23 * Math.sin(Date.now() / 40400) + 80 * Math.sin(Date.now() / 4040);
+    saturn.position.z = 23 * Math.cos(Date.now() / 40400) + 80 * Math.cos(Date.now() / 4040);
+
   }
 
   return {
