@@ -25,7 +25,7 @@ export default scene => {
   });
 
   // create the iss inital shape
-  let starGeometry  = new THREE.SphereGeometry(200, 32, 32);
+  let starGeometry  = new THREE.SphereGeometry(300, 32, 32);
   let starMaterial  = new THREE.MeshBasicMaterial();
   starMaterial.map   = new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_stars_milky_way.jpg ');
   starMaterial.side  = THREE.BackSide;
@@ -67,14 +67,14 @@ export default scene => {
   });
 
   //create mercury
-  let mercuryGeometry = new THREE.SphereBufferGeometry(.3, 30, 30 );
+  let mercuryGeometry = new THREE.SphereBufferGeometry(.6, 30, 30 );
   let mercuryMaterial = new THREE.MeshPhongMaterial();
   mercuryMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_atmosphere.jpg');
   mercuryMaterial.bumpMap= new THREE.TextureLoader().load('https://astrogeology.usgs.gov/cache/images/5d2885caad2f1190994b2f1cd36c688d_Mars_MGS_MOLA_DEM_mosaic_global_1024.jpg');
   mercuryMaterial.bumpScale = .005;
 
   //create venus
-  let venusGeometry = new THREE.SphereBufferGeometry(.8, 30, 30 );
+  let venusGeometry = new THREE.SphereBufferGeometry(.9, 30, 30 );
   let venusMaterial = new THREE.MeshPhongMaterial();
   venusMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
   venusMaterial.bumpMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
@@ -109,7 +109,7 @@ export default scene => {
   neptuneMaterial.bumpScale = .05;
 
   //create pluto
-  let plutoGeometry = new THREE.SphereBufferGeometry(.6, 30, 30 );
+  let plutoGeometry = new THREE.SphereBufferGeometry(.3, 30, 30 );
   let plutoMaterial = new THREE.MeshPhongMaterial();
   plutoMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_saturn.jpg');
   plutoMaterial.bumpMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
@@ -147,6 +147,7 @@ export default scene => {
   scene.add(saturn);
   scene.add(uranus);
   scene.add(neptune);
+  scene.add(pluto);
 
   function update() {
     sphere.rotation.y +=0.0005;
@@ -186,17 +187,20 @@ export default scene => {
     mars.position.x = 25 * Math.sin(Date.now() / 40400) + 40 * Math.sin(Date.now() / 8040);
     mars.position.z = 25 * Math.cos(Date.now() / 40400) + 40 * Math.cos(Date.now() / 8040);
 
-    jupiter.position.x = 23 * Math.sin(Date.now() / 40400) + 60 * Math.sin(Date.now() / 7040);
-    jupiter.position.z = 23 * Math.cos(Date.now() / 40400) + 60 * Math.cos(Date.now() / 7040);
+    jupiter.position.x = 23 * Math.sin(Date.now() / 40400) + 60 * Math.sin(Date.now() / 6040);
+    jupiter.position.z = 23 * Math.cos(Date.now() / 40400) + 60 * Math.cos(Date.now() / 6040);
 
-    saturn.position.x = 23 * Math.sin(Date.now() / 40400) + 110 * Math.sin(Date.now() / 6040);
-    saturn.position.z = 23 * Math.cos(Date.now() / 40400) + 110 * Math.cos(Date.now() / 6040);
+    saturn.position.x = 23 * Math.sin(Date.now() / 40400) + 110 * Math.sin(Date.now() / 7040);
+    saturn.position.z = 23 * Math.cos(Date.now() / 40400) + 110 * Math.cos(Date.now() / 7040);
 
-    uranus.position.x = 23 * Math.sin(Date.now() / 40400) + 130 * Math.sin(Date.now() / 3040);
-    uranus.position.z = 23 * Math.cos(Date.now() / 40400) + 130 * Math.cos(Date.now() / 3040);
+    uranus.position.x = 23 * Math.sin(Date.now() / 40400) + 130 * Math.sin(Date.now() / 8040);
+    uranus.position.z = 23 * Math.cos(Date.now() / 40400) + 130 * Math.cos(Date.now() / 8040);
 
-    neptune.position.x = 23 * Math.sin(Date.now() / 40400) + 150 * Math.sin(Date.now() / 2040);
-    neptune.position.z = 23 * Math.cos(Date.now() / 40400) + 150 * Math.cos(Date.now() / 2040);
+    neptune.position.x = 23 * Math.sin(Date.now() / 40400) + 150 * Math.sin(Date.now() / 9040);
+    neptune.position.z = 23 * Math.cos(Date.now() / 40400) + 150 * Math.cos(Date.now() / 9040);
+
+    pluto.position.x = 23 * Math.sin(Date.now() / 40400) + 180 * Math.sin(Date.now() / 10040);
+    pluto.position.z = 23 * Math.cos(Date.now() / 40400) + 180 * Math.cos(Date.now() / 10040);
 
 
 
