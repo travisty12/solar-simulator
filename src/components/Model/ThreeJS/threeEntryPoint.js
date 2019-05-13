@@ -1,19 +1,19 @@
 import SceneManager from './SceneManager';
 
 export default container => {
-    const canvas = createCanvas(document, container);
-    const sceneManager = new SceneManager(canvas);
+  const canvas = createCanvas(document, container);
+  const sceneManager = new SceneManager(canvas);
 
-    render();
+  render();
 
-    function createCanvas(document, container) {
-        const canvas = document.createElement('canvas');
-        container.appendChild(canvas);
-        return canvas;
-    }
+  function createCanvas(document, container) {
+    const canvas = document.createElement('canvas');
+    container.appendChild(canvas);
+    return canvas;
+  }
 
-    function render() {
-        requestAnimationFrame(render);
-        sceneManager.update();
-    }
-}
+  function render() {
+    requestAnimationFrame(render);
+    sceneManager.update();
+  }
+};
