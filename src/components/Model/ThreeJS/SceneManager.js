@@ -8,7 +8,6 @@ export default canvas => {
   let scene = new THREE.Scene ( );
   let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
   camera.position.z =1;
-
   let renderer = new THREE.WebGLRenderer( );
   renderer.setSize( window.innerWidth, window.innerHeight );
   document.body.appendChild ( renderer.domElement );
@@ -34,11 +33,23 @@ export default canvas => {
 
     return sceneSubjects;
   }
+  console.log(scene)
+  // setTimeout(function() {
+  // }, 10000);
 
   function update() {
     for(let i=0; i<sceneSubjects.length; i++) {
       sceneSubjects[i].update();
     }
+    // scene.position.x = scene.children[8].position.x
+    // scene.position.y = scene.children[8].position.y
+    // scene.position.z = scene.children[8].position.z +5
+    // camera.position.x = scene.children[8].position.x
+    // camera.position.y = scene.children[8].position.y
+    // camera.position.z = scene.children[8].position.z
+    // camera.lookAt(scene.children[8].position)
+    // controls.target = scene.children[8].position;
+    // controls.update();
     renderer.render(scene, camera);
   }
 
