@@ -31,8 +31,8 @@ export default scene => {
   starMaterial.side  = THREE.BackSide;
   // create the mesh based on geometry and material
   let stars  = new THREE.Mesh(starGeometry, starMaterial);
-  let issGeometry = new THREE.SphereBufferGeometry(0.0005, 30, 30 );
-  let issMaterial = new THREE.MeshBasicMaterial( {wireframe: true, color: 0xffffff });
+  let issGeometry = new THREE.SphereBufferGeometry(0.005, 10, 10 );
+  let issMaterial = new THREE.MeshBasicMaterial( {wireframe: true, color: 0xff0000 });
   let iss = new THREE.Mesh(issGeometry, issMaterial);
 
   // create the moon
@@ -88,29 +88,45 @@ export default scene => {
   scene.add(sun);
   scene.add(sunCloudMesh);
 
+  function getCoords() {
+    fetch('https://api.wheretheiss.at/v1/satellites/25544?units=miles')
+      .then(
+        response => response.json(),
+        error => console.log('An error occured.', error),
+      ).then(function(json) {
+        if (json) {
+          iss.position.x = 0.53125 * Math.cos(Math.PI * json.longitude / 180) * Math.cos(Math.PI * json.latitude / 360);
+          iss.position.z = -0.53125 * Math.sin(Math.PI * json.longitude / 180) * Math.cos(Math.PI * json.latitude / 360);
+          iss.position.y = 0.53125 * Math.sin(Math.PI * json.latitude / 360);
+        }
+      });
+  }
+  setInterval(function() {getCoords();}, 5000);
   function update() {
-    sphere.rotation.y +=0.0005;
+    // sphere.rotation.y +=0.0000001736;
     cloudMesh.rotation.x += 0.0007;
     cloudMesh.rotation.y -= 0.0001;
-    moon.rotation.y +=.0005;
+    moon.rotation.y +=.000000005879;
     mars.rotation.y +=.005;
     sunCloudMesh.rotation.x += 0.07;
     sunCloudMesh.rotation.y -= 0.01;
 
     //overall positioning
-    iss.position.x = 0.53125 * Math.sin(Date.now() / 2400);
-    iss.position.z = 0.53125 * Math.cos(Date.now() / 2400);
+    // iss.position.x = 0.53125 * Math.sin(Date.now() / 2400);
+    // iss.position.z = 0.53125 * Math.cos(Date.now() / 2400);
+    // iss.position.x = -0.53125;
+    // iss.position.z = 0;
 
-    moon.position.x = 3 * Math.sin(Date.now() / 15400);
-    moon.position.z = 3 * Math.cos(Date.now() / 15400);
+    moon.position.x = 3 * Math.sin(Date.now() / 2551392000);
+    moon.position.z = 3 * Math.cos(Date.now() / 2551392000);
 
-    mars.position.x = 25 * Math.sin(Date.now() / 40400) + 15 * Math.sin(Date.now() / 4040);
-    mars.position.z = 25 * Math.cos(Date.now() / 40400) + 15 * Math.cos(Date.now() / 4040);
+    mars.position.x = 25 * Math.sin(Date.now() / 31536000000) + 5 * Math.sin(Date.now() / 1000);
+    mars.position.z = 25 * Math.cos(Date.now() / 31536000000) + 5 * Math.cos(Date.now() / 1000);
 
-    sun.position.x = 25 * Math.sin(Date.now() / 40400);
-    sun.position.z = 25 * Math.cos(Date.now() / 40400);
-    sunCloudMesh.position.z = 25 * Math.cos(Date.now() / 40400);
-    sunCloudMesh.position.x = 25 * Math.sin(Date.now() / 40400);
+    sun.position.x = 25 * Math.sin(Date.now() / 31536000000);
+    sun.position.z = 25 * Math.cos(Date.now() / 31536000000);
+    sunCloudMesh.position.z = 25 * Math.cos(Date.now() / 31536000000);
+    sunCloudMesh.position.x = 25 * Math.sin(Date.now() / 31536000000);
   }
 
   return {
