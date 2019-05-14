@@ -25,7 +25,7 @@ import plutoBump from '../../../assets/images/plutobump2k.jpg';
 
 export default scene => {
   //earth
-  let earthGeometry = new THREE.SphereBufferGeometry( 0.5, 30, 30 );
+  let earthGeometry = new THREE.SphereBufferGeometry( 1, 30, 30 );
   let earthTexture = new THREE.TextureLoader().load ( earthPic );
   let earthMaterial = new THREE.MeshPhongMaterial( {map: earthTexture} );
   earthMaterial.bumpMap= new THREE.TextureLoader().load( earthBump );
@@ -36,7 +36,7 @@ export default scene => {
   //city lights needs to be pushed in
   // earthMaterial.cityMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg');
 
-  let cloudGeometry   = new THREE.SphereGeometry(0.51, 32, 32);
+  let cloudGeometry   = new THREE.SphereGeometry(1.02, 32, 32);
   let cloudMaterial  = new THREE.MeshPhongMaterial({
     map     : new THREE.TextureLoader().load(earthCloud),
     side        : THREE.DoubleSide,
@@ -52,13 +52,13 @@ export default scene => {
   starMaterial.side  = THREE.BackSide;
   // create the mesh based on geometry and material
   let stars  = new THREE.Mesh(starGeometry, starMaterial);
-  let issGeometry = new THREE.SphereBufferGeometry(0.005, 10, 10 );
+  let issGeometry = new THREE.SphereBufferGeometry(0.01, 10, 10 );
   let issMaterial = new THREE.MeshBasicMaterial( {wireframe: true, color: 0xff0000 });
   let iss = new THREE.Mesh(issGeometry, issMaterial);
 
   // create the moon
 
-  let moonGeometry = new THREE.SphereBufferGeometry(.05, 30, 30 );
+  let moonGeometry = new THREE.SphereBufferGeometry(.123, 30, 30 );
   let moonMaterial = new THREE.MeshPhongMaterial();
   moonMaterial.map =  new THREE.TextureLoader().load( moonPic );
   moonMaterial.bumpMap= new THREE.TextureLoader().load( moonBump );
@@ -66,19 +66,19 @@ export default scene => {
 
   //create mars
 
-  let marsGeometry = new THREE.SphereBufferGeometry(.3, 30, 30 );
+  let marsGeometry = new THREE.SphereBufferGeometry(.532, 30, 30 );
   let marsMaterial = new THREE.MeshPhongMaterial();
   marsMaterial.map =  new THREE.TextureLoader().load( marsPic );
   marsMaterial.bumpMap= new THREE.TextureLoader().load( marsBump );
   marsMaterial.bumpScale = .005;
 
   //create sun
-  let sunGeometry = new THREE.SphereBufferGeometry(20, 30, 30 );
+  let sunGeometry = new THREE.SphereBufferGeometry(109, 30, 30 );
   let sunMaterial = new THREE.MeshPhongMaterial();
   sunMaterial.map =  new THREE.TextureLoader().load( sunPic );
   sunMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
   sunMaterial.bumpScale = .05;
-  let sunCloudGeometry   = new THREE.SphereGeometry(20, 32, 32);
+  let sunCloudGeometry   = new THREE.SphereGeometry(109.1, 32, 32);
   let sunCloudMaterial  = new THREE.MeshPhongMaterial({
     map     : new THREE.TextureLoader().load(sunCloud),
     side        : THREE.DoubleSide,
@@ -88,56 +88,56 @@ export default scene => {
   });
 
   //create mercury
-  let mercuryGeometry = new THREE.SphereBufferGeometry(.6, 30, 30 );
+  let mercuryGeometry = new THREE.SphereBufferGeometry(.383, 30, 30 );
   let mercuryMaterial = new THREE.MeshPhongMaterial();
   mercuryMaterial.map =  new THREE.TextureLoader().load( mercuryPic );
   mercuryMaterial.bumpMap= new THREE.TextureLoader().load( mercuryBump );
   mercuryMaterial.bumpScale = .005;
 
   //create venus
-  let venusGeometry = new THREE.SphereBufferGeometry(.9, 30, 30 );
+  let venusGeometry = new THREE.SphereBufferGeometry(.949, 30, 30 );
   let venusMaterial = new THREE.MeshPhongMaterial();
   venusMaterial.map =  new THREE.TextureLoader().load( venusPic);
   venusMaterial.bumpMap= new THREE.TextureLoader().load( venusBump);
   venusMaterial.bumpScale = .05;
 
   //create jupiter
-  let jupiterGeometry = new THREE.SphereBufferGeometry(12, 30, 30 );
+  let jupiterGeometry = new THREE.SphereBufferGeometry(11.21, 30, 30 );
   let jupiterMaterial = new THREE.MeshPhongMaterial();
   jupiterMaterial.map =  new THREE.TextureLoader().load( jupiterPic );
   jupiterMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
   jupiterMaterial.bumpScale = .05;
 
   //create saturn
-  let saturnGeometry = new THREE.SphereBufferGeometry(8, 30, 30 );
+  let saturnGeometry = new THREE.SphereBufferGeometry(9.45, 30, 30 );
   let saturnMaterial = new THREE.MeshPhongMaterial();
   saturnMaterial.map =  new THREE.TextureLoader().load( saturnPic );
   saturnMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
   saturnMaterial.bumpScale = .05;
 
   let saturnRing = function() {
-    var canvasResult	= document.createElement('canvas')
-    canvasResult.width	= 915
-    canvasResult.height	= 64
-    var contextResult	= canvasResult.getContext('2d')
-    }
+    var canvasResult	= document.createElement('canvas');
+    canvasResult.width	= 915;
+    canvasResult.height	= 64;
+    var contextResult	= canvasResult.getContext('2d');
+  }
 
   //create uranus
-  let uranusGeometry = new THREE.SphereBufferGeometry(3, 30, 30 );
+  let uranusGeometry = new THREE.SphereBufferGeometry(4.01, 30, 30 );
   let uranusMaterial = new THREE.MeshPhongMaterial();
   uranusMaterial.map =  new THREE.TextureLoader().load( uranusPic );
   uranusMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
   uranusMaterial.bumpScale = .05;
 
   //create neptune
-  let neptuneGeometry = new THREE.SphereBufferGeometry(4, 30, 30 );
+  let neptuneGeometry = new THREE.SphereBufferGeometry(3.88, 30, 30 );
   let neptuneMaterial = new THREE.MeshPhongMaterial();
   neptuneMaterial.map =  new THREE.TextureLoader().load( neptunePic );
   neptuneMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
   neptuneMaterial.bumpScale = .05;
 
   //create pluto
-  let plutoGeometry = new THREE.SphereBufferGeometry(.3, 30, 30 );
+  let plutoGeometry = new THREE.SphereBufferGeometry(0.186, 30, 30 );
   let plutoMaterial = new THREE.MeshPhongMaterial();
   plutoMaterial.map =  new THREE.TextureLoader().load( plutoPic );
   plutoMaterial.bumpMap= new THREE.TextureLoader().load( plutoBump);
@@ -209,47 +209,47 @@ export default scene => {
     //overall positioning
     earth.name="earth";
 
-    sun.position.x = 400 * Math.sin(Date.now() / 31536000000);
-    sun.position.z = 400 * Math.cos(Date.now() / 31536000000);
+    sun.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
+    sun.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000);
     sun.name="sun";
 
-    sunCloudMesh.position.x = 400 * Math.sin(Date.now() / 31536000000);
-    sunCloudMesh.position.z = 400 * Math.cos(Date.now() / 31536000000);
+    sunCloudMesh.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
+    sunCloudMesh.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000);
 
 
-    mercury.position.x = 400 * Math.sin(Date.now() / 31536000000) + 270 * Math.sin(Date.now() / 3040);
-    mercury.position.z = 400 * Math.cos(Date.now() / 31536000000) + 270 * Math.cos(Date.now() / 3040);
+    mercury.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 270 * Math.sin(2 * Math.PI * Date.now() / 7600176000);
+    mercury.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 270 * Math.cos(2 * Math.PI * Date.now() / 7600176000);
     mercury.name="mercury";
 
-    venus.position.x = 400 * Math.sin(Date.now() / 31536000000) + 300 * Math.sin(Date.now() / 4500);
-    venus.position.z = 400 * Math.cos(Date.now() / 31536000000) + 300 * Math.cos(Date.now() / 4500);
+    venus.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 300 * Math.sin(2 * Math.PI * Date.now() / 19394640000);
+    venus.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 300 * Math.cos(2 * Math.PI * Date.now() / 19394640000);
     venus.name="venus";
 
-    moon.position.x = 3 * Math.sin(Date.now() / 2551392000);
-    moon.position.z = 3 * Math.cos(Date.now() / 2551392000);
+    moon.position.x = 3 * Math.sin(2 * Math.PI * Date.now() / 2551392000);
+    moon.position.z = 3 * Math.cos(2 * Math.PI * Date.now() / 2551392000);
 
-    mars.position.x = 400 * Math.sin(Date.now() / 31536000000) + 500 * Math.sin(Date.now() / 6040);
-    mars.position.z = 400 * Math.cos(Date.now() / 31536000000) + 500 * Math.cos(Date.now() / 6040);
+    mars.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 500 * Math.sin(2 * Math.PI * Date.now() / 59287680000);
+    mars.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 500 * Math.cos(2 * Math.PI * Date.now() / 59287680000);
     mars.name="mars";
 
-    jupiter.position.x = 400 * Math.sin(Date.now() / 31536000000) + 600 * Math.sin(Date.now() / 9040);
-    jupiter.position.z = 400 * Math.cos(Date.now() / 31536000000) + 600 * Math.cos(Date.now() / 9040);
+    jupiter.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 600 * Math.sin(2 * Math.PI * Date.now() / 375278400000);
+    jupiter.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 600 * Math.cos(2 * Math.PI * Date.now() / 375278400000);
     jupiter.name="jupiter";
 
-    saturn.position.x = 400 * Math.sin(Date.now() / 31536000000) + 1100 * Math.sin(Date.now() / 12040);
-    saturn.position.z = 400 * Math.cos(Date.now() / 31536000000) + 1100 * Math.cos(Date.now() / 12040);
+    saturn.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.sin(2 * Math.PI * Date.now() / 927158400000);
+    saturn.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.cos(2 * Math.PI * Date.now() / 927158400000);
     saturn.name="saturn";
 
-    uranus.position.x = 400 * Math.sin(Date.now() / 31536000000) + 1400 * Math.sin(Date.now() / 14040);
-    uranus.position.z = 400 * Math.cos(Date.now() / 31536000000) + 1400 * Math.cos(Date.now() / 14040);
+    uranus.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1400 * Math.sin(2 * Math.PI * Date.now() / 2639563200000);
+    uranus.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1400 * Math.cos(2 * Math.PI * Date.now() / 2639563200000);
     uranus.name="uranus";
 
-    neptune.position.x = 400 * Math.sin(Date.now() / 31536000000) + 1700 * Math.sin(Date.now() / 17040);
-    neptune.position.z = 400 * Math.cos(Date.now() / 31536000000) + 1700 * Math.cos(Date.now() / 17040);
+    neptune.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1700 * Math.sin(2 * Math.PI * Date.now() / 516244320000);
+    neptune.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1700 * Math.cos(2 * Math.PI * Date.now() / 516244320000);
     neptune.name="neptune";
 
-    pluto.position.x = 400 * Math.sin(Date.now() / 31536000000) + 1900 * Math.sin(Date.now() / 20040);
-    pluto.position.z = 400 * Math.cos(Date.now() / 31536000000) + 1900 * Math.cos(Date.now() / 20040);
+    pluto.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1900 * Math.sin(2 * Math.PI * Date.now() / 7817774400000);
+    pluto.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1900 * Math.cos(2 * Math.PI * Date.now() / 7817774400000);
     pluto.name="pluto";
 
 
