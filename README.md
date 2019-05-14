@@ -1,68 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Solar Simulator
 
-## Available Scripts
+#### By **Ian Cook Westgate**, **Travis Toal**, **Ryan McLean**, **Robbie Kruszynski** and **Slater Smith**
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+The Solar Simulator is designed with two goals in mind. First, use the three.js Javascript 3D library to depict a visually stunning and responsive reproduction of the solar system. Second, utilize the International Space Station's (ISS) API to give an approximate portrayal of its current location in orbit around Earth.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Component Structure    
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+![Component and Routing structure for the Solar Simulator](src/assets/images/component-map.JPG)
 
-### `npm test`
+## Landing Page
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Setup
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* In your terminal, if you intend to view the code and want to make the React pages more legible, enter `apm install react`.
+* Using your terminal, clone this repo by inputting `git clone https://github.com/travisty12/solar-simulator.git`.
+* Navigate to the folder in the terminal by typing in: `cd solar-simulator`.
+* In your terminal, enter `npm install` to install necessary dependencies.
+* Then enter `npm run start` to view the project, which will be opened in a new browser tab.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Site Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* The solar system (not to scale) is visually depicted on the screen. This includes all planets, the sun, and Earth's moon.
+* The user can click and drag on the screen in order to change the visual direction. This is locked to Earth's position.
+* The user can view the ISS's approximate position in orbit around Earth, updated every 5 seconds from NASA's API.
+* The user can select the different planets in the upper-left header menu in order to view some educational information about each one.
 
-### `npm run eject`
+## Future Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Permit the user to move the camera around all of the solar system, not just Earth.
+* The camera should zoom to each planet that the user selects in the header menu.
+* Zooming into the ISS's position should let the user view a picture of what the interior of the ISS looks like to the astronauts who use it.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* HTML
+* CSS
+* JavaScript
+  * three.js
+* Node Packet Manager (NPM)
+* Babel
+* Webpack
+* React
+* ESLint
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Known Bugs
 
-## Learn More
+*
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Support and contact details
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+_Email iancookwestgate@gmail.com with any questions._
 
-### Code Splitting
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+This software is licensed under the MIT license.
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright (c) 2019 **Ian Cook Westgate**, **Travis Toal**, **Ryan McLean**, **Robbie Kruszynski** and **Slater Smith**
