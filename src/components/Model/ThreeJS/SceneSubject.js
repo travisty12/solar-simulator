@@ -1,23 +1,44 @@
+import React, {Component } from 'react';
 import * as THREE from 'three';
+import starPic from '../../../assets/images/starMap.jpg';
+import earthPic from '../../../assets/images/2k_earth_daymap.jpg';
+import earthBump from '../../../assets/images/Earth.Bump.jpg';
+import earthSpec from '../../../assets/images/earthSpec.jpg';
+import earthCloud from '../../../assets/images/earthCloudMap.jpg';
+import marsPic from '../../../assets/images/marsMap.jpg';
+import marsBump from '../../../assets/images/marsBump.jpg';
+import moonPic from '../../../assets/images/moonmap2k.jpg';
+import moonBump from '../../../assets/images/moonbump2k.jpg';
+import sunPic from '../../../assets/images/sunMapPic.jpg';
+import sunCloud from '../../../assets/images/sunCloudMap.jpg';
+import mercuryPic  from '../../../assets/images/mercurymap.jpg';
+import mercuryBump  from '../../../assets/images/mercurybump.jpg';
+import venusPic from '../../../assets/images/venusMap.jpg';
+import venusBump from '../../../assets/images/venusBump.jpg';
+import jupiterPic from '../../../assets/images/jupiterMap.jpg';
+import saturnPic from '../../../assets/images/saturnmap.jpg';
+import uranusPic from '../../../assets/images/uranusmap.jpg';
+import neptunePic from '../../../assets/images/neptunemap.jpg';
 
+import plutoPic from '../../../assets/images/plutomap2k.jpg';
+import plutoBump from '../../../assets/images/plutobump2k.jpg';
 
 export default scene => {
   //earth
   let earthGeometry = new THREE.SphereBufferGeometry( 0.5, 30, 30 );
-  let earthTexture = new THREE.TextureLoader( ).load('https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg');
+  let earthTexture = new THREE.TextureLoader().load ( earthPic );
   let earthMaterial = new THREE.MeshPhongMaterial( {map: earthTexture} );
-  earthMaterial.bumpMap= new THREE.TextureLoader().load('https://richardandersson.net/wp-content/uploads/2016/08/Earth.Bump_21600x10800.jpg');
+  earthMaterial.bumpMap= new THREE.TextureLoader().load( earthBump );
   earthMaterial.bumpScale = .05;
-  earthMaterial.specularMap = new THREE.TextureLoader().load('http://blog.apoapsys.com/assets/melted-ice/melted-ice-specular-8192x4096.jpg');
+  earthMaterial.specularMap = new THREE.TextureLoader().load( earthSpec );
   earthMaterial.specular  = new THREE.Color('grey');
 
   //city lights needs to be pushed in
-  earthMaterial.cityMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg');
-
+  // earthMaterial.cityMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg');
 
   let cloudGeometry   = new THREE.SphereGeometry(0.51, 32, 32);
   let cloudMaterial  = new THREE.MeshPhongMaterial({
-    map     : new THREE.TextureLoader().load('https://a.disquscdn.com/uploads/mediaembed/images/625/3633/original.jpg'),
+    map     : new THREE.TextureLoader().load(earthCloud),
     side        : THREE.DoubleSide,
     opacity     : 0.3,
     transparent : true,
@@ -27,7 +48,7 @@ export default scene => {
   // create the iss inital shape
   let starGeometry  = new THREE.SphereGeometry(3500, 32, 32);
   let starMaterial  = new THREE.MeshBasicMaterial();
-  starMaterial.map   = new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_stars_milky_way.jpg ');
+  starMaterial.map   = new THREE.TextureLoader().load( starPic );
   starMaterial.side  = THREE.BackSide;
   // create the mesh based on geometry and material
   let stars  = new THREE.Mesh(starGeometry, starMaterial);
@@ -39,27 +60,27 @@ export default scene => {
 
   let moonGeometry = new THREE.SphereBufferGeometry(.05, 30, 30 );
   let moonMaterial = new THREE.MeshPhongMaterial();
-  moonMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_moon.jpg');
-  moonMaterial.bumpMap= new THREE.TextureLoader().load('https://photojournal.jpl.nasa.gov/jpegMod/PIA08448_modest.jpg');
+  moonMaterial.map =  new THREE.TextureLoader().load( moonPic );
+  moonMaterial.bumpMap= new THREE.TextureLoader().load( moonBump );
   moonMaterial.bumpScale = .0005;
 
   //create mars
 
   let marsGeometry = new THREE.SphereBufferGeometry(.3, 30, 30 );
   let marsMaterial = new THREE.MeshPhongMaterial();
-  marsMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_mars.jpg');
-  marsMaterial.bumpMap= new THREE.TextureLoader().load('https://astrogeology.usgs.gov/cache/images/5d2885caad2f1190994b2f1cd36c688d_Mars_MGS_MOLA_DEM_mosaic_global_1024.jpg');
+  marsMaterial.map =  new THREE.TextureLoader().load( marsPic );
+  marsMaterial.bumpMap= new THREE.TextureLoader().load( marsBump );
   marsMaterial.bumpScale = .005;
 
   //create sun
   let sunGeometry = new THREE.SphereBufferGeometry(20, 30, 30 );
   let sunMaterial = new THREE.MeshPhongMaterial();
-  sunMaterial.map =  new THREE.TextureLoader().load('https://stereo.gsfc.nasa.gov/360blog/20111230_004615_304.jpg');
-  sunMaterial.bumpMap= new THREE.TextureLoader().load('https://upload.wikimedia.org/wikipedia/commons/9/99/Map_of_the_full_sun.jpg');
-  sunMaterial.bumpScale = .005;
+  sunMaterial.map =  new THREE.TextureLoader().load( sunPic );
+  sunMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
+  sunMaterial.bumpScale = .05;
   let sunCloudGeometry   = new THREE.SphereGeometry(20, 32, 32);
   let sunCloudMaterial  = new THREE.MeshPhongMaterial({
-    map     : new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_sun.jpg'),
+    map     : new THREE.TextureLoader().load(sunCloud),
     side        : THREE.DoubleSide,
     opacity     : 0.3,
     transparent : true,
@@ -69,29 +90,29 @@ export default scene => {
   //create mercury
   let mercuryGeometry = new THREE.SphereBufferGeometry(.6, 30, 30 );
   let mercuryMaterial = new THREE.MeshPhongMaterial();
-  mercuryMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_atmosphere.jpg');
-  mercuryMaterial.bumpMap= new THREE.TextureLoader().load('https://astrogeology.usgs.gov/cache/images/5d2885caad2f1190994b2f1cd36c688d_Mars_MGS_MOLA_DEM_mosaic_global_1024.jpg');
+  mercuryMaterial.map =  new THREE.TextureLoader().load( mercuryPic );
+  mercuryMaterial.bumpMap= new THREE.TextureLoader().load( mercuryBump );
   mercuryMaterial.bumpScale = .005;
 
   //create venus
   let venusGeometry = new THREE.SphereBufferGeometry(.9, 30, 30 );
   let venusMaterial = new THREE.MeshPhongMaterial();
-  venusMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
-  venusMaterial.bumpMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
+  venusMaterial.map =  new THREE.TextureLoader().load( venusPic);
+  venusMaterial.bumpMap= new THREE.TextureLoader().load( venusBump);
   venusMaterial.bumpScale = .05;
 
   //create jupiter
   let jupiterGeometry = new THREE.SphereBufferGeometry(12, 30, 30 );
   let jupiterMaterial = new THREE.MeshPhongMaterial();
-  jupiterMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_jupiter.jpg');
-  jupiterMaterial.bumpMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
+  jupiterMaterial.map =  new THREE.TextureLoader().load( jupiterPic );
+  jupiterMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
   jupiterMaterial.bumpScale = .05;
 
   //create saturn
   let saturnGeometry = new THREE.SphereBufferGeometry(8, 30, 30 );
   let saturnMaterial = new THREE.MeshPhongMaterial();
-  saturnMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_saturn.jpg');
-  saturnMaterial.bumpMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
+  saturnMaterial.map =  new THREE.TextureLoader().load( saturnPic );
+  saturnMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
   saturnMaterial.bumpScale = .05;
 
   let saturnRing = function() {
@@ -104,22 +125,22 @@ export default scene => {
   //create uranus
   let uranusGeometry = new THREE.SphereBufferGeometry(3, 30, 30 );
   let uranusMaterial = new THREE.MeshPhongMaterial();
-  uranusMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_uranus.jpg');
-  uranusMaterial.bumpMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
+  uranusMaterial.map =  new THREE.TextureLoader().load( uranusPic );
+  uranusMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
   uranusMaterial.bumpScale = .05;
 
   //create neptune
   let neptuneGeometry = new THREE.SphereBufferGeometry(4, 30, 30 );
   let neptuneMaterial = new THREE.MeshPhongMaterial();
-  neptuneMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_neptune.jpg');
-  neptuneMaterial.bumpMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
+  neptuneMaterial.map =  new THREE.TextureLoader().load( neptunePic );
+  neptuneMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
   neptuneMaterial.bumpScale = .05;
 
   //create pluto
   let plutoGeometry = new THREE.SphereBufferGeometry(.3, 30, 30 );
   let plutoMaterial = new THREE.MeshPhongMaterial();
-  plutoMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_saturn.jpg');
-  plutoMaterial.bumpMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
+  plutoMaterial.map =  new THREE.TextureLoader().load( plutoPic );
+  plutoMaterial.bumpMap= new THREE.TextureLoader().load( plutoBump);
   plutoMaterial.bumpScale = .05;
 
   let moon = new THREE.Mesh(moonGeometry, moonMaterial);
