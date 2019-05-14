@@ -4,16 +4,17 @@ import GeneralLights from './GeneralLights';
 import OrbitControls from 'three-orbitcontrols'
 
 let planet = 'earth';
+let controls;
 export function updateCamera(arg){
   planet = arg;
-  console.log(planet)
+  console.log(controls)
 }
 
 export default canvas => {
 
   let scene = new THREE.Scene ( );
   let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 7000 );
-  camera.position.z =1;
+  camera.position.z =5;
   let renderer = new THREE.WebGLRenderer( );
   renderer.setSize( window.innerWidth, window.innerHeight );
   document.body.appendChild ( renderer.domElement );
@@ -26,8 +27,8 @@ export default canvas => {
     camera.updateProjectionMatrix();
   } );
 
-  let controls = new OrbitControls( camera, renderer.domElement );
-
+  controls = new OrbitControls( camera, renderer.domElement );
+  controls.enablePan = false;
 
   const sceneSubjects = createSceneSubjects(scene);
   console.log(sceneSubjects);
@@ -39,7 +40,8 @@ export default canvas => {
 
     return sceneSubjects;
   }
-  console.log(camera)
+  console.log(camera);
+  console.log(controls);
   // setTimeout(function() {
   // }, 10000);
   function updateCamera(arg){
@@ -62,7 +64,7 @@ export default canvas => {
     }
     camera.lookAt(position)
     controls.target = position;
-    controls.update();
+    // controls.update();
     renderer.render(scene, camera);
   }
 
