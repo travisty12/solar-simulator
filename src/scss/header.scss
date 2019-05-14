@@ -81,8 +81,8 @@
 .hamBeef {
   margin-top: 17.5px;
   opacity: 1;
-  -webkit-transition: opacity .3s;
   transition-timing-function: ease;
+  -webkit-transition: opacity .3s;
   transition: opacity .3s;
   transition-delay: .2s;
 }
@@ -90,8 +90,9 @@
 .hideBeef {
   margin-top: 17.5px;
   opacity: 0;
-  -webkit-transition: opacity .5s;
-  transition: opacity .5s;
+  transition-timing-function: ease;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
 }
 
 .hamOne,
