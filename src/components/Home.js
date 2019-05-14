@@ -1,7 +1,8 @@
 import React from 'react';
 import Model from './Model/Model';
 
-function Home(){
+function Home(props){
+  console.log(props, "in home component")
   return(
     <div>
       <Model/>

@@ -186,9 +186,11 @@ export default scene => {
     uranus.rotation.y+=0.005;
     pluto.rotation.y +=0.005;
     //overall positioning
+    earth.name="earth";
 
     sun.position.x = 400 * Math.sin(Date.now() / 31536000000);
     sun.position.z = 400 * Math.cos(Date.now() / 31536000000);
+    sun.name="sun";
 
     sunCloudMesh.position.x = 400 * Math.sin(Date.now() / 31536000000);
     sunCloudMesh.position.z = 400 * Math.cos(Date.now() / 31536000000);
@@ -196,32 +198,38 @@ export default scene => {
 
     mercury.position.x = 400 * Math.sin(Date.now() / 31536000000) + 270 * Math.sin(Date.now() / 3040);
     mercury.position.z = 400 * Math.cos(Date.now() / 31536000000) + 270 * Math.cos(Date.now() / 3040);
+    mercury.name="mercury";
 
     venus.position.x = 400 * Math.sin(Date.now() / 31536000000) + 300 * Math.sin(Date.now() / 4500);
     venus.position.z = 400 * Math.cos(Date.now() / 31536000000) + 300 * Math.cos(Date.now() / 4500);
-
-
+    venus.name="venus";
 
     moon.position.x = 3 * Math.sin(Date.now() / 2551392000);
     moon.position.z = 3 * Math.cos(Date.now() / 2551392000);
 
     mars.position.x = 400 * Math.sin(Date.now() / 31536000000) + 500 * Math.sin(Date.now() / 6040);
     mars.position.z = 400 * Math.cos(Date.now() / 31536000000) + 500 * Math.cos(Date.now() / 6040);
+    mars.name="mars";
 
     jupiter.position.x = 400 * Math.sin(Date.now() / 31536000000) + 600 * Math.sin(Date.now() / 9040);
     jupiter.position.z = 400 * Math.cos(Date.now() / 31536000000) + 600 * Math.cos(Date.now() / 9040);
+    jupiter.name="jupiter";
 
     saturn.position.x = 400 * Math.sin(Date.now() / 31536000000) + 1100 * Math.sin(Date.now() / 12040);
     saturn.position.z = 400 * Math.cos(Date.now() / 31536000000) + 1100 * Math.cos(Date.now() / 12040);
+    saturn.name="saturn";
 
     uranus.position.x = 400 * Math.sin(Date.now() / 31536000000) + 1400 * Math.sin(Date.now() / 14040);
     uranus.position.z = 400 * Math.cos(Date.now() / 31536000000) + 1400 * Math.cos(Date.now() / 14040);
+    uranus.name="uranus";
 
     neptune.position.x = 400 * Math.sin(Date.now() / 31536000000) + 1700 * Math.sin(Date.now() / 17040);
     neptune.position.z = 400 * Math.cos(Date.now() / 31536000000) + 1700 * Math.cos(Date.now() / 17040);
+    neptune.name="neptune";
 
     pluto.position.x = 400 * Math.sin(Date.now() / 31536000000) + 1900 * Math.sin(Date.now() / 20040);
     pluto.position.z = 400 * Math.cos(Date.now() / 31536000000) + 1900 * Math.cos(Date.now() / 20040);
+    pluto.name="pluto";
 
 
   }
