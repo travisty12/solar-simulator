@@ -1,6 +1,6 @@
 # Solar Simulator
 
-#### By **Ian Cook Westgate**, **Travis Toal**, **Ryan McLean**, **Robbie Kruszynski** and **Slater Smith**
+#### By **Robbie Kruszynski**, **Ryan McLean**, **Travis Toal**, **Slater Smith**, **Ian Cook Westgate**, and **Ian Cook Westgate**
 
 ## Description
 
@@ -63,4 +63,4 @@ _Email iancookwestgate@gmail.com with any questions._
 
 This software is licensed under the MIT license.
 
-Copyright (c) 2019 **Ian Cook Westgate**, **Travis Toal**, **Ryan McLean**, **Robbie Kruszynski** and **Slater Smith**
+Copyright (c) 2019 **Robbie Kruszynski**, **Ryan McLean**, **Travis Toal**,**Slater Smith**, **Ian Cook Westgate**, and **Ian Cook Westgate**
