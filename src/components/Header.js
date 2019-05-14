@@ -22,7 +22,7 @@ constructor(props) {
       <div className={true===this.state.stageVisibleOnPage? "styledBkrnd" : "styledBkrndHide"}>
       <div onClick={this.menuOpen} className="menuBtn">
         <div className={true===this.state.stageVisibleOnPage? "xOne" : "hamOne"}></div>
-        <div className={true===this.state.stageVisibleOnPage? "hamBeef hide" : "hamBeef"}></div>
+        <div className={true===this.state.stageVisibleOnPage? "hideBeef" : "hamBeef"}></div>
         <div className={true===this.state.stageVisibleOnPage? "xTwo" : "hamTwo"}></div>
 
       </div>
