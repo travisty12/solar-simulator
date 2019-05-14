@@ -12,6 +12,11 @@ The Solar Simulator is designed with two goals in mind. First, use the three.js 
 
 ## Landing Page
 
+## User Stories
+
+* As a science teacher, I would love a spectacular and dynamic website that my students can use to learn more about the planets of the solar system.
+* As a programmer looking for new tech to use and learn from, I want the website to show the power of three.js across more than one object.
+* As a potential investor, I am looking for a website that can harness both visual excitement in the user as well as provide a learning experience.
 
 ## Setup
 
@@ -24,7 +29,7 @@ The Solar Simulator is designed with two goals in mind. First, use the three.js 
 ## Site Features
 
 * The solar system (not to scale) is visually depicted on the screen. This includes all planets, the sun, and Earth's moon.
-* The user can click and drag on the screen in order to change the visual direction. This is locked to Earth's position.
+* The user can use their mousewheel along with click and drag on the screen in order to change the visual direction. This is currently locked to Earth's position.
 * The user can view the ISS's approximate position in orbit around Earth, updated every 5 seconds from NASA's API.
 * The user can select the different planets in the upper-left header menu in order to view some educational information about each one.
 
