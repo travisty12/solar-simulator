@@ -25,7 +25,7 @@ export default scene => {
   });
   //earth end
   // create the iss inital shape
-  let starGeometry  = new THREE.SphereGeometry(300, 32, 32);
+  let starGeometry  = new THREE.SphereGeometry(3500, 32, 32);
   let starMaterial  = new THREE.MeshBasicMaterial();
   starMaterial.map   = new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_stars_milky_way.jpg ');
   starMaterial.side  = THREE.BackSide;
@@ -54,7 +54,7 @@ export default scene => {
   //create sun
   let sunGeometry = new THREE.SphereBufferGeometry(20, 30, 30 );
   let sunMaterial = new THREE.MeshPhongMaterial();
-  sunMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_sun.jpg');
+  sunMaterial.map =  new THREE.TextureLoader().load('https://stereo.gsfc.nasa.gov/360blog/20111230_004615_304.jpg');
   sunMaterial.bumpMap= new THREE.TextureLoader().load('https://upload.wikimedia.org/wikipedia/commons/9/99/Map_of_the_full_sun.jpg');
   sunMaterial.bumpScale = .005;
   let sunCloudGeometry   = new THREE.SphereGeometry(20, 32, 32);
@@ -93,6 +93,13 @@ export default scene => {
   saturnMaterial.map =  new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_saturn.jpg');
   saturnMaterial.bumpMap= new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg');
   saturnMaterial.bumpScale = .05;
+
+  let saturnRing = function() {
+    var canvasResult	= document.createElement('canvas')
+    canvasResult.width	= 915
+    canvasResult.height	= 64
+    var contextResult	= canvasResult.getContext('2d')
+    }
 
   //create uranus
   let uranusGeometry = new THREE.SphereBufferGeometry(3, 30, 30 );
@@ -169,55 +176,52 @@ export default scene => {
     cloudMesh.rotation.y -= 0.0001;
     moon.rotation.y +=.000000005879;
     mars.rotation.y +=.005;
-    sunCloudMesh.rotation.x += 0.07;
-    sunCloudMesh.rotation.y -= 0.01;
-    mercury.rotation.y +=0.0005;
-    venus.rotation.y +=0.0005;
-    jupiter.rotation.y +=0.0005;
-    saturn.rotation.y +=0.0005;
-
+    sunCloudMesh.rotation.x += 0.0007;
+    sunCloudMesh.rotation.y -= 0.0001;
+    mercury.rotation.y +=0.005;
+    venus.rotation.y +=0.005;
+    jupiter.rotation.y +=0.005;
+    saturn.rotation.y +=0.005;
+    neptune.rotation.y+=0.005;
+    uranus.rotation.y+=0.005;
+    pluto.rotation.y +=0.005;
     //overall positioning
 
+    sun.position.x = 400 * Math.sin(Date.now() / 31536000000);
+    sun.position.z = 400 * Math.cos(Date.now() / 31536000000);
 
-    sun.position.x = 40 * Math.sin(Date.now() / 40400);
-    sun.position.z = 40 * Math.cos(Date.now() / 40400);
-
-    sunCloudMesh.position.z = 40 * Math.cos(Date.now() / 40400);
-    sunCloudMesh.position.x = 40 * Math.sin(Date.now() / 40400);
+    sunCloudMesh.position.x = 400 * Math.sin(Date.now() / 31536000000);
+    sunCloudMesh.position.z = 400 * Math.cos(Date.now() / 31536000000);
 
 
-    mercury.position.x = 23 * Math.sin(Date.now() / 40400) + 20 * Math.sin(Date.now() / 4040);
-    mercury.position.z = 23 * Math.cos(Date.now() / 40400) + 20 * Math.cos(Date.now() / 4040);
+    mercury.position.x = 400 * Math.sin(Date.now() / 31536000000) + 270 * Math.sin(Date.now() / 3040);
+    mercury.position.z = 400 * Math.cos(Date.now() / 31536000000) + 270 * Math.cos(Date.now() / 3040);
 
-    venus.position.x = 23 * Math.sin(Date.now() / 40400) + 30 * Math.sin(Date.now() / 4040);
-    venus.position.z = 23 * Math.cos(Date.now() / 40400) + 30 * Math.cos(Date.now() / 4040);
+    venus.position.x = 400 * Math.sin(Date.now() / 31536000000) + 300 * Math.sin(Date.now() / 4500);
+    venus.position.z = 400 * Math.cos(Date.now() / 31536000000) + 300 * Math.cos(Date.now() / 4500);
 
 
 
     moon.position.x = 3 * Math.sin(Date.now() / 2551392000);
     moon.position.z = 3 * Math.cos(Date.now() / 2551392000);
 
-    mars.position.x = 25 * Math.sin(Date.now() / 40400) + 40 * Math.sin(Date.now() / 8040);
-    mars.position.z = 25 * Math.cos(Date.now() / 40400) + 40 * Math.cos(Date.now() / 8040);
+    mars.position.x = 400 * Math.sin(Date.now() / 31536000000) + 500 * Math.sin(Date.now() / 6040);
+    mars.position.z = 400 * Math.cos(Date.now() / 31536000000) + 500 * Math.cos(Date.now() / 6040);
 
-    jupiter.position.x = 23 * Math.sin(Date.now() / 40400) + 60 * Math.sin(Date.now() / 6040);
-    jupiter.position.z = 23 * Math.cos(Date.now() / 40400) + 60 * Math.cos(Date.now() / 6040);
+    jupiter.position.x = 400 * Math.sin(Date.now() / 31536000000) + 600 * Math.sin(Date.now() / 9040);
+    jupiter.position.z = 400 * Math.cos(Date.now() / 31536000000) + 600 * Math.cos(Date.now() / 9040);
 
-    saturn.position.x = 23 * Math.sin(Date.now() / 40400) + 110 * Math.sin(Date.now() / 7040);
-    saturn.position.z = 23 * Math.cos(Date.now() / 40400) + 110 * Math.cos(Date.now() / 7040);
+    saturn.position.x = 400 * Math.sin(Date.now() / 31536000000) + 1100 * Math.sin(Date.now() / 12040);
+    saturn.position.z = 400 * Math.cos(Date.now() / 31536000000) + 1100 * Math.cos(Date.now() / 12040);
 
-    uranus.position.x = 23 * Math.sin(Date.now() / 40400) + 130 * Math.sin(Date.now() / 8040);
-    uranus.position.z = 23 * Math.cos(Date.now() / 40400) + 130 * Math.cos(Date.now() / 8040);
+    uranus.position.x = 400 * Math.sin(Date.now() / 31536000000) + 1400 * Math.sin(Date.now() / 14040);
+    uranus.position.z = 400 * Math.cos(Date.now() / 31536000000) + 1400 * Math.cos(Date.now() / 14040);
 
-    neptune.position.x = 23 * Math.sin(Date.now() / 40400) + 150 * Math.sin(Date.now() / 9040);
-    neptune.position.z = 23 * Math.cos(Date.now() / 40400) + 150 * Math.cos(Date.now() / 9040);
+    neptune.position.x = 400 * Math.sin(Date.now() / 31536000000) + 1700 * Math.sin(Date.now() / 17040);
+    neptune.position.z = 400 * Math.cos(Date.now() / 31536000000) + 1700 * Math.cos(Date.now() / 17040);
 
-    pluto.position.x = 23 * Math.sin(Date.now() / 40400) + 180 * Math.sin(Date.now() / 10040);
-    pluto.position.z = 23 * Math.cos(Date.now() / 40400) + 180 * Math.cos(Date.now() / 10040);
-
-
-
-
+    pluto.position.x = 400 * Math.sin(Date.now() / 31536000000) + 1900 * Math.sin(Date.now() / 20040);
+    pluto.position.z = 400 * Math.cos(Date.now() / 31536000000) + 1900 * Math.cos(Date.now() / 20040);
 
 
   }
