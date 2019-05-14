@@ -3,14 +3,16 @@
   background-color: black;
   height: 98vh;
   width: 98vw;
-  opacity: .8
+  opacity: .8;
+  padding: 5px
 };
 
 .styledBkrndHide {
   position: fixed;
   background-color: black;
   height: 40px;
-  width: 40px
+  width: 40px;
+  margin: 5px
 };
 
 .styledText {
@@ -20,6 +22,10 @@
   margin-bottom: 20px;
   font-weight: 100
 };
+
+.styledText:hover {
+  text-shadow: 0 0 5px yellow;
+}
 
 .menuBtn {
   position: relative;
@@ -41,41 +47,38 @@
   display: none;
 }
 
-.xOne {
+.hamBeef,
+.hideBeef,
+.hamOne,
+.hamTwo,
+.xOne,
+.xTwo  {
   position: absolute;
+  background-color: white;
   width: 40px;
   height: 5px;
-  background-color: white;
+}
+
+.xOne,
+.xTwo {
+  margin-left: 0;
+  -webkit-transition: transform .5s;
+  transition-timing-function: ease;
+}
+
+.xOne {
   transform: rotate(45deg);
   transform-origin: 15% 150%;
   margin-top: 5px;
-  margin-left: 0;
-  -webkit-transition: transform .5s;
-  transition-timing-function: ease;
-  // transition: transform .2s;
-  // transition-delay: .2s;
 }
 
 .xTwo {
-  position: absolute;
-  width: 40px;
-  height: 5px;
-  background-color: white;
   transform: rotate(-45deg);
   transform-origin: 10% -100%;
   margin-top: 30px;
-  margin-left: 0;
-  -webkit-transition: transform .5s;
-  transition-timing-function: ease;
-  // transition: transform .2s;
-  // transition-delay: .2s;
 }
 
 .hamBeef {
-  position: absolute;
-  background-color: white;
-  width: 40px;
-  height: 5px;
   margin-top: 17.5px;
   opacity: 1;
   -webkit-transition: opacity .3s;
@@ -85,39 +88,27 @@
 }
 
 .hideBeef {
-  position: absolute;
-  background-color: white;
-  width: 40px;
-  height: 5px;
   margin-top: 17.5px;
   opacity: 0;
   -webkit-transition: opacity .5s;
   transition: opacity .5s;
 }
 
-.hamOne {
-  position: absolute;
-  width: 40px;
-  height: 5px;
-  background-color: white;
+.hamOne,
+.hamTwo {
   transform: rotate(0deg);
-  transform-origin: 15% 100%;
-  margin-top: 5px;
   margin-left: 0;
   -webkit-transition: transform .5s;
   transition: transform .5s;
 }
 
+.hamOne {
+  transform-origin: 15% 100%;
+  margin-top: 5px;
+}
+
 .hamTwo {
-  position: absolute;
-  width: 40px;
-  height: 5px;
-  background-color: white;
-  transform: rotate(0deg);
   transform-origin: 0 100%;
   margin-top: 30px;
-  margin-left: 0;
-  -webkit-transition: transform .5s;
-  transition: transform .5s;
   // transition-delay: 1s;
 }
