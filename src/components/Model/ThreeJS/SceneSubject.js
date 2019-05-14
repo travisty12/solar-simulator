@@ -121,8 +121,6 @@ export default scene => {
   let earth = new THREE.Mesh(earthGeometry, earthMaterial );
   let sun =  new THREE.Mesh(sunGeometry, sunMaterial );
   let sunCloudMesh = new THREE.Mesh(sunCloudGeometry, sunCloudMaterial);
-<<<<<<< HEAD
-=======
   let mercury = new THREE.Mesh(mercuryGeometry, mercuryMaterial );
   let venus = new THREE.Mesh(venusGeometry, venusMaterial );
   let jupiter = new THREE.Mesh(jupiterGeometry, jupiterMaterial );
@@ -130,7 +128,6 @@ export default scene => {
   let uranus = new THREE.Mesh(uranusGeometry, uranusMaterial);
   let neptune = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
   let pluto = new THREE.Mesh(plutoGeometry, plutoMaterial);
->>>>>>> master
   // better iss build plans
   //photo link
   // https://upload.wikimedia.org/wikipedia/commons/0/07/ISS_post-Nauka_installation_%283D_rendering%29.jpg
@@ -144,11 +141,6 @@ export default scene => {
   scene.add(mars);
   scene.add(sun);
   scene.add(sunCloudMesh);
-<<<<<<< HEAD
-  console.log(sun)
-  function update() {
-    earth.rotation.y +=0.0005;
-=======
   scene.add(mercury);
   scene.add(venus);
   scene.add(jupiter);
@@ -173,25 +165,17 @@ export default scene => {
   setInterval(function() {getCoords();}, 5000);
   function update() {
     // sphere.rotation.y +=0.0000001736;
->>>>>>> master
     cloudMesh.rotation.x += 0.0007;
     cloudMesh.rotation.y -= 0.0001;
     moon.rotation.y +=.000000005879;
     mars.rotation.y +=.005;
     sunCloudMesh.rotation.x += 0.07;
     sunCloudMesh.rotation.y -= 0.01;
-<<<<<<< HEAD
-    moon.addEventListener("click", hello)
-    function hello(){
-      alert("hello")
-    }
-=======
     mercury.rotation.y +=0.0005;
     venus.rotation.y +=0.0005;
     jupiter.rotation.y +=0.0005;
     saturn.rotation.y +=0.0005;
 
->>>>>>> master
     //overall positioning
 
 
@@ -208,7 +192,7 @@ export default scene => {
     venus.position.x = 23 * Math.sin(Date.now() / 40400) + 30 * Math.sin(Date.now() / 4040);
     venus.position.z = 23 * Math.cos(Date.now() / 40400) + 30 * Math.cos(Date.now() / 4040);
 
-  
+
 
     moon.position.x = 3 * Math.sin(Date.now() / 2551392000);
     moon.position.z = 3 * Math.cos(Date.now() / 2551392000);

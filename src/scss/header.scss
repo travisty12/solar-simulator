@@ -1,0 +1,96 @@
+.styledBkrnd {
+  position: fixed;
+  background-color: black;
+  height: 98vh;
+  width: 98vw;
+  opacity: .8
+};
+
+.styledBkrndHide {
+  position: fixed;
+  background-color: black;
+  height: 40px;
+  width: 40px
+};
+
+.styledText {
+  color: white;
+  font-family: helvetica;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 100
+};
+
+.menuBtn {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  background-color: lightgreen
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50vh;
+  margin-top: -300px
+}
+
+.hide {
+  display: none
+}
+
+.xOne {
+  position: absolute;
+  width: 40px;
+  height: 5px;
+  background-color: white;
+  transform: rotate(45deg);
+  transform-origin: 15% 150%;
+  margin-top: 5px;
+  margin-left: 0
+}
+
+.xTwo {
+  position: absolute;
+  width: 40px;
+  height: 5px;
+  background-color: white;
+  transform: rotate(-45deg);
+  transform-origin: 10% -100%;
+  margin-top: 30px;
+  margin-left: 0
+}
+
+.hamBeef {
+  position: absolute;
+  background-color: white;
+  width: 40px;
+  height: 5px;
+  margin-top: 17.5px;
+  -webkit-transition: display 2s;
+  transition: display 2s;
+}
+
+.hamOne {
+  position: absolute;
+  width: 40px;
+  height: 5px;
+  background-color: white;
+  transform: rotate(0deg);
+  transform-origin: 100% 0;
+  margin-top: 5px;
+  margin-left: 0
+}
+
+.hamTwo {
+  position: absolute;
+  width: 40px;
+  height: 5px;
+  background-color: white;
+  transform: rotate(0deg);
+  transform-origin: 0 100%;
+  margin-top: 30px;
+  margin-left: 0
+}

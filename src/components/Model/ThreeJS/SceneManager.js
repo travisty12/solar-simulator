@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import SceneSubject from './SceneSubject';
 import GeneralLights from './GeneralLights';
-import './OrbitControls';
+import OrbitControls from 'three-orbitcontrols'
 
 export default canvas => {
 
@@ -20,15 +20,15 @@ export default canvas => {
     camera.updateProjectionMatrix();
   } );
 
-  let controls = new THREE.OrbitControls( camera, renderer.domElement );
+  let controls = new OrbitControls( camera, renderer.domElement );
 
 
   const sceneSubjects = createSceneSubjects(scene);
   console.log(sceneSubjects);
   function createSceneSubjects(scene) {
     const sceneSubjects = [
-      new GeneralLights(scene),
-      new SceneSubject(scene)
+      GeneralLights(scene),
+      SceneSubject(scene)
     ];
 
     return sceneSubjects;
