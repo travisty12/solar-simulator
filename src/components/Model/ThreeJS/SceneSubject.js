@@ -163,9 +163,9 @@ export default scene => {
         error => console.log('An error occured.', error),
       ).then(function(json) {
         if (json) {
-          iss.position.x = 0.53125 * Math.cos(Math.PI * json.longitude / 180) * Math.cos(Math.PI * json.latitude / 360);
-          iss.position.z = -0.53125 * Math.sin(Math.PI * json.longitude / 180) * Math.cos(Math.PI * json.latitude / 360);
-          iss.position.y = 0.53125 * Math.sin(Math.PI * json.latitude / 360);
+          iss.position.x = 0.53125 * Math.cos(Math.PI * json.longitude / 180) * Math.cos(Math.PI * json.latitude / 180);
+          iss.position.z = -0.53125 * Math.sin(Math.PI * json.longitude / 180) * Math.cos(Math.PI * json.latitude / 180);
+          iss.position.y = 0.53125 * Math.sin(Math.PI * json.latitude / 180);
         }
       });
   }
