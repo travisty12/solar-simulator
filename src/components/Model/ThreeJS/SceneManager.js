@@ -3,8 +3,7 @@ import SceneSubject from './SceneSubject';
 import GeneralLights from './GeneralLights';
 import OrbitControls from 'three-orbitcontrols'
 
-export default canvas => {
-
+export default canvas =>{
   let scene = new THREE.Scene ( );
   let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
   camera.position.z =1;
@@ -15,6 +14,7 @@ export default canvas => {
   window.addEventListener( 'resize', function(){
     let width = window.innerWidth;
     let height = window.innerHeight;
+
     renderer.setSize(width, height );
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
@@ -36,7 +36,14 @@ export default canvas => {
   console.log(scene)
   // setTimeout(function() {
   // }, 10000);
-
+  function updateCamera(arg){
+    if(arg === "earth"){
+      console.log("earth")
+      camera.lookAt(scene.children[8].position)
+    } else {
+      console.log("no");
+    }
+  }
   function update() {
     for(let i=0; i<sceneSubjects.length; i++) {
       sceneSubjects[i].update();

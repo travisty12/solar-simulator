@@ -1,4 +1,5 @@
 import React from 'react';
+import SceneManager from './Model/ThreeJS/SceneManager';
 
 class Header extends React.Component{
 constructor(props) {
@@ -18,6 +19,8 @@ constructor(props) {
   }
 
   render () {
+    const sceneManager = SceneManager();
+    console.log(sceneManager)
     return(
       <div className={true===this.state.stageVisibleOnPage? "styledBkrnd" : "styledBkrndHide"}>
       <div onClick={this.menuOpen} className="menuBtn">
@@ -27,8 +30,8 @@ constructor(props) {
 
       </div>
       <ul className={true===this.state.stageVisibleOnPage? "show" : "hide"}>
-        <li><h1 className="styledText">Earth</h1></li>
-        <li><h1 className="styledText">Sun</h1></li>
+        <li><h1 onClick={this.props.earthFunction} className="styledText">Earth</h1></li>
+        <li><h1 onClick={() => sceneManager.updateCamera('earth')}className="styledText">Sun</h1></li>
         <li><h1 className="styledText">Mars</h1></li>
         <li><h1 className="styledText">Neptune</h1></li>
         <li><h1 className="styledText">Jupiter</h1></li>
