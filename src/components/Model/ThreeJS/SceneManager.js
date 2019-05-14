@@ -44,16 +44,9 @@ export default canvas => {
   console.log(controls);
   // setTimeout(function() {
   // }, 10000);
-  function updateCamera(arg){
-    if(arg === "earth"){
-      console.log("earth")
-      camera.lookAt(scene.children[8].position)
-    } else {
-      console.log("no");
-    }
-  }
+
   function update() {
-    let position;
+    let position = scene.children[2].position;
     for(let i=0; i<sceneSubjects.length; i++) {
       sceneSubjects[i].update();
     }
