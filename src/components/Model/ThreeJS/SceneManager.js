@@ -3,7 +3,14 @@ import SceneSubject from './SceneSubject';
 import GeneralLights from './GeneralLights';
 import OrbitControls from 'three-orbitcontrols'
 
-export default canvas =>{
+let planet = 'earth';
+export function updateCamera(arg){
+  planet = arg;
+  console.log(planet)
+}
+
+export default canvas => {
+
   let scene = new THREE.Scene ( );
   let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 7000 );
   camera.position.z =1;
@@ -14,7 +21,6 @@ export default canvas =>{
   window.addEventListener( 'resize', function(){
     let width = window.innerWidth;
     let height = window.innerHeight;
-
     renderer.setSize(width, height );
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
@@ -33,7 +39,7 @@ export default canvas =>{
 
     return sceneSubjects;
   }
-  console.log(scene)
+  console.log(camera)
   // setTimeout(function() {
   // }, 10000);
   function updateCamera(arg){
@@ -45,23 +51,24 @@ export default canvas =>{
     }
   }
   function update() {
+    let position;
     for(let i=0; i<sceneSubjects.length; i++) {
       sceneSubjects[i].update();
     }
-    // scene.position.x = scene.children[8].position.x
-    // scene.position.y = scene.children[8].position.y
-    // scene.position.z = scene.children[8].position.z +5
-    // camera.position.x = scene.children[8].position.x
-    // camera.position.y = scene.children[8].position.y
-    // camera.position.z = scene.children[8].position.z
-    // camera.lookAt(scene.children[8].position)
-    // controls.target = scene.children[8].position;
-    // controls.update();
+    for(let i=0; i<scene.children.length; i++){
+      if (planet === scene.children[i].name){
+        position = scene.children[i].position
+      }
+    }
+    camera.lookAt(position)
+    controls.target = position;
+    controls.update();
     renderer.render(scene, camera);
   }
 
   return {
-    update
+    update,
+    updateCamera
   };
 
 };

@@ -11,6 +11,7 @@ export default container => {
     container.appendChild(canvas);
     return canvas;
   }
+  sceneManager.updateCamera();
 
   function render() {
     requestAnimationFrame(render);
