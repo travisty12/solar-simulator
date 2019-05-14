@@ -1,6 +1,6 @@
 # Solar Simulator
 
-#### By **Robbie Kruszynski**, **Ryan McLean**, **Travis Toal**, **Slater Smith**, **Ian Cook Westgate**, and **Ian Cook Westgate**
+#### By **Robbie Kruszynski**, **Ryan McLean**, **Slater Smith**, **Travis Toal**, and **Ian Cook Westgate**
 
 ## Description
 
