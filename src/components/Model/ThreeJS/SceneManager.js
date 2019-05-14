@@ -3,6 +3,12 @@ import SceneSubject from './SceneSubject';
 import GeneralLights from './GeneralLights';
 import OrbitControls from 'three-orbitcontrols'
 
+let planet = 'earth';
+export function updateCamera(arg){
+  planet = arg;
+  console.log(planet)
+}
+
 export default canvas => {
 
   let scene = new THREE.Scene ( );
@@ -33,28 +39,36 @@ export default canvas => {
 
     return sceneSubjects;
   }
-  console.log(scene)
+  console.log(camera)
   // setTimeout(function() {
   // }, 10000);
-
+  function updateCamera(arg){
+    if(arg === "earth"){
+      console.log("earth")
+      camera.lookAt(scene.children[8].position)
+    } else {
+      console.log("no");
+    }
+  }
   function update() {
+    let position;
     for(let i=0; i<sceneSubjects.length; i++) {
       sceneSubjects[i].update();
     }
-    // scene.position.x = scene.children[8].position.x
-    // scene.position.y = scene.children[8].position.y
-    // scene.position.z = scene.children[8].position.z +5
-    // camera.position.x = scene.children[8].position.x
-    // camera.position.y = scene.children[8].position.y
-    // camera.position.z = scene.children[8].position.z
-    // camera.lookAt(scene.children[8].position)
-    // controls.target = scene.children[8].position;
-    // controls.update();
+    for(let i=0; i<scene.children.length; i++){
+      if (planet === scene.children[i].name){
+        position = scene.children[i].position
+      }
+    }
+    camera.lookAt(position)
+    controls.target = position;
+    controls.update();
     renderer.render(scene, camera);
   }
 
   return {
-    update
+    update,
+    updateCamera
   };
 
 };
