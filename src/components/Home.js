@@ -6,7 +6,6 @@ function Home(props){
   return(
     <div>
       <Model/>
-      <h1>Home Component</h1>
     </div>
   );
 }

@@ -8,10 +8,16 @@ export default class Model extends Component {
       threeEntryPoint(this.threeRootElement);
   }
 
+  divStyle() {
+    return {
+      height: '0px'
+    }
+  }
+
   render () {
     return (
       <div>
-        <div className="header-header" ref={element => this.threeRootElement = element}></div>
+        <div className="header-header" style={{height: '0px'}} ref={element => this.threeRootElement = element}></div>
       </div>
     );
   }
