@@ -4,18 +4,32 @@ import GeneralLights from './GeneralLights';
 import OrbitControls from 'three-orbitcontrols'
 
 let planet = 'earth';
-let controls;
-export function updateCamera(arg){
+let scene = new THREE.Scene ( );
+let renderer = new THREE.WebGLRenderer( );
+let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 7000 );
+let controls = new OrbitControls( camera, renderer.domElement );
+let position;
+export function updateCamera(arg, sceneInit = scene, cameraInit = camera, control = controls){
   planet = arg;
-  console.log(controls)
+  for(let i=0; i<sceneInit.children.length; i++){
+    if (planet === sceneInit.children[i].name){
+      position = sceneInit.children[i].position
+      cameraInit.lookAt(position)
+      control.target = position;
+      if (control && camera) {
+        cameraInit.position.x = control.target.x;
+        cameraInit.position.y = control.target.y;
+        cameraInit.position.z = control.target.z + 3 * sceneInit.children[i].geometry.boundingSphere.radius;
+      }
+      break;
+    }
+  }
+  console.log(control);
 }
 
 export default canvas => {
 
-  let scene = new THREE.Scene ( );
-  let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 7000 );
   camera.position.z =5;
-  let renderer = new THREE.WebGLRenderer( );
   renderer.setSize( window.innerWidth, window.innerHeight );
   document.body.appendChild ( renderer.domElement );
 
@@ -27,7 +41,6 @@ export default canvas => {
     camera.updateProjectionMatrix();
   } );
 
-  controls = new OrbitControls( camera, renderer.domElement );
   controls.enablePan = false;
 
   const sceneSubjects = createSceneSubjects(scene);
@@ -42,6 +55,7 @@ export default canvas => {
   }
   console.log(camera);
   console.log(controls);
+  console.log(scene);
   // setTimeout(function() {
   // }, 10000);
 
