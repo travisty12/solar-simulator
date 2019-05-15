@@ -21,15 +21,15 @@ constructor(props) {
   render () {
 
     return(
-      <div className={true===this.state.stageVisibleOnPage? "styledBkrnd" : "styledBkrndHide"}>
+      <div className={this.state.stageVisibleOnPage? "styledBkrnd" : "styledBkrndHide"}>
         <div className="menu">
           <div onClick={this.menuOpen} className="menuBtn">
-            <div className={true===this.state.stageVisibleOnPage? "xOne" : "hamOne"}></div>
-            <div className={true===this.state.stageVisibleOnPage? "hideBeef" : "hamBeef"}></div>
-            <div className={true===this.state.stageVisibleOnPage? "xTwo" : "hamTwo"}></div>
+            <div className={this.state.stageVisibleOnPage? "xOne" : "hamOne"}></div>
+            <div className={this.state.stageVisibleOnPage? "hideBeef" : "hamBeef"}></div>
+            <div className={this.state.stageVisibleOnPage? "xTwo" : "hamTwo"}></div>
 
           </div>
-          <div className={true===this.state.stageVisibleOnPage? "show" : "hide"}>
+          <div className={this.state.stageVisibleOnPage? "show" : "hide"}>
             <h1 onClick={() => updateCamera('sun')}>Sun</h1>
             <h1 onClick={() => updateCamera('mercury')}>Mercury</h1>
             <h1 onClick={() => updateCamera('venus')}>Venus</h1>
