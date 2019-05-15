@@ -67,6 +67,7 @@ function PlanetInformation(props){
 
   return(
     <div className="planetInformation">
+      <img onClick={() => setInformation(!information)} src={require('../assets/images/useIcon.png')}/>
       <div className={information? "info" : "hideMenu"}>
       {planetInformation}
       </div>

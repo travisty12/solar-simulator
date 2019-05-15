@@ -23,7 +23,6 @@
     animation: slideRight .5s linear, slideOut .7s linear .5s forwards;
     box-shadow: 0px 0px 10px yellow;
     overflow: auto;
-    scrollbar-width: none;  // Firefox
     width: 50vw;
     height: 55vh;
     border-radius: 5px;
@@ -150,14 +149,25 @@
   position: fixed;
   width: 20%;
   right: 0;
-  top: 40px;
+  top: 65px;
   color: white;
-  height: calc(100% - 42px);
+  height: calc(100% - 67px);
   text-align: center;
+  img{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
   .info{
     overflow: hidden;
     animation: menuDown 1s linear forwards;
     border: 1px solid white;
+    background-color: black;
     padding: 5px;
     height: calc(100% - 10px);
   }
