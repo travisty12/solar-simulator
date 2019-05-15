@@ -5,7 +5,11 @@ function Home(props){
 
   return(
     <div>
+<<<<<<< HEAD
+      <Model/> 
+=======
       <Model/>
+>>>>>>> master
     </div>
   );
 }
