@@ -3,18 +3,20 @@ import Header from './Header';
 import Home from './Home';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import Error404 from './Error404';
-
+import PlanetInformation from './PlanetInformation';
 function App(){
-  const [sceneCamera, setCamera] = useState('earth');
+  const [planet, setPlanet] = useState('earth');
 
-  function earthFunction(){
-    console.log("earth app")
+  function thisPlanet(info){
+    setPlanet(info.planet)
   }
+
   return(
     <div>
-      <Header earthFunction={earthFunction}/>
+      <Header newPlanet={thisPlanet}/>
+      <PlanetInformation planet={planet}/>
       <Switch>
-      <Route path='/' render={() => <Home camera={sceneCamera}/>}/>
+      <Route path='/' component={Home}/>
       <Route component={Error404} />
       </Switch>
     </div>
