@@ -27,8 +27,10 @@ export function updateCamera(arg, sceneInit = scene, cameraInit = camera, contro
   console.log(control);
 }
 
-export default canvas => {
 
+export default canvas => {
+  let raycaster = new THREE.Raycaster(); // create once
+  let mouse = new THREE.Vector2(); // create once
   camera.position.z =5;
   renderer.setSize( window.innerWidth, window.innerHeight );
   document.body.appendChild ( renderer.domElement );
@@ -58,7 +60,7 @@ export default canvas => {
   console.log(scene);
   // setTimeout(function() {
   // }, 10000);
-
+  let index = 2;
   function update() {
     let position = scene.children[2].position;
     for(let i=0; i<sceneSubjects.length; i++) {
@@ -66,6 +68,7 @@ export default canvas => {
     }
     for(let i=0; i<scene.children.length; i++){
       if (planet === scene.children[i].name){
+        index = i;
         position = scene.children[i].position
       }
     }
@@ -73,6 +76,25 @@ export default canvas => {
     controls.target = position;
     // controls.update();
     renderer.render(scene, camera);
+  }
+
+  document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+  function onDocumentMouseDown( event ) {
+    mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+    mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+
+    raycaster.setFromCamera( mouse, camera );
+
+    let intersects = raycaster.intersectObjects( scene.children );
+    for (let i = 0; i < intersects.length; i++ ) {
+      if (intersects[i].object.name) {
+        if (intersects[i].object.name !== scene.children[index].name) {
+          console.log(intersects[i].object.name);
+          updateCamera(intersects[i].object.name);
+        }
+        break;
+      }
+    }
   }
 
   return {
