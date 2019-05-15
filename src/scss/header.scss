@@ -142,22 +142,27 @@
   // transition-delay: 1s;
 }
 
+@keyframes menuDown{
+  0%{height: 0px}
+  100%{height: calc(100% - 10px)}
+}
 .planetInformation{
-  position: absolute;
-  border: 1px solid white;
+  position: fixed;
   width: 20%;
-  margin-top: 55px;
+  right: 0;
+  top: 40px;
   color: white;
-  height: calc(100% - 57px);
-  .earth{
+  height: calc(100% - 42px);
+  text-align: center;
+  .info{
+    overflow: hidden;
+    animation: menuDown 1s linear forwards;
+    border: 1px solid white;
     padding: 5px;
-    background-color: rgba(255, 252, 247, 0.5);
-    height: 100%;
+    height: calc(100% - 10px);
   }
-  .mercury{
-    padding: 5px;
-    background-color: rgba(178, 88, 46, 0.4);
-    height: 100%;
+  .hideMenu{
+    display: none;
   }
   h1{
     margin: 0;
