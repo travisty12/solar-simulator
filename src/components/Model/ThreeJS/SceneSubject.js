@@ -273,7 +273,6 @@ export default scene => {
 
     europa.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 600 * Math.sin(2 * Math.PI * Date.now() / 375278400000) + 50 * Math.sin(2 * Math.PI * Date.now() / 10000);
     europa.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 600 * Math.cos(2 * Math.PI * Date.now() / 375278400000) + 50 * Math.cos(2 * Math.PI * Date.now() / 10000);
-    europa.name="europe";
 
 
     saturn.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.sin(2 * Math.PI * Date.now() / 927158400000);
@@ -282,7 +281,6 @@ export default scene => {
 
     ring1.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.sin(2 * Math.PI * Date.now() / 927158400000);
     ring1.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.cos(2 * Math.PI * Date.now() / 927158400000);
-    ring1.name="ring1";
 
 
     uranus.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1400 * Math.sin(2 * Math.PI * Date.now() / 2639563200000);
@@ -291,7 +289,6 @@ export default scene => {
 
     ring2.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1400 * Math.sin(2 * Math.PI * Date.now() / 2639563200000);
     ring2.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1400 * Math.cos(2 * Math.PI * Date.now() / 2639563200000);
-    ring2.name="ring2";
 
     neptune.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1700 * Math.sin(2 * Math.PI * Date.now() / 516244320000);
     neptune.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1700 * Math.cos(2 * Math.PI * Date.now() / 516244320000);
