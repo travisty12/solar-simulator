@@ -108,6 +108,13 @@ export default scene => {
   jupiterMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
   jupiterMaterial.bumpScale = .05;
 
+  //create Europe
+  let europaGeometry = new THREE.SphereBufferGeometry(1, 30, 30 );
+  let europaMaterial = new THREE.MeshPhongMaterial();
+  europaMaterial.map =  new THREE.TextureLoader().load( moonPic );
+  europaMaterial.bumpMap= new THREE.TextureLoader().load( moonBump );
+  europaMaterial.bumpScale = .05;
+
   //create saturn
   let saturnGeometry = new THREE.SphereBufferGeometry(9.45, 30, 30 );
   let saturnMaterial = new THREE.MeshPhongMaterial();
@@ -115,12 +122,15 @@ export default scene => {
   saturnMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
   saturnMaterial.bumpScale = .05;
 
-  let saturnRing = function() {
-    var canvasResult	= document.createElement('canvas');
-    canvasResult.width	= 915;
-    canvasResult.height	= 64;
-    var contextResult	= canvasResult.getContext('2d');
-  }
+  //create rings
+  let ringGeometry = new THREE.RingBufferGeometry( 1, 5, 300 );
+  let ringMaterial = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+  let ringMesh = new THREE.Mesh( ringGeometry, ringMaterial );
+
+//link to look at for reference
+
+//threejs.org/docs/index.html#api/en/geometries/RingBufferGeometry
+
 
   //create uranus
   let uranusGeometry = new THREE.SphereBufferGeometry(4.01, 30, 30 );
@@ -152,10 +162,13 @@ export default scene => {
   let mercury = new THREE.Mesh(mercuryGeometry, mercuryMaterial );
   let venus = new THREE.Mesh(venusGeometry, venusMaterial );
   let jupiter = new THREE.Mesh(jupiterGeometry, jupiterMaterial );
+  let europa = new THREE.Mesh(europaGeometry, europaMaterial );
   let saturn = new THREE.Mesh(saturnGeometry, saturnMaterial);
+  let ring = new THREE.Mesh(ringGeometry, ringMaterial);
   let uranus = new THREE.Mesh(uranusGeometry, uranusMaterial);
   let neptune = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
   let pluto = new THREE.Mesh(plutoGeometry, plutoMaterial);
+
   // better iss build plans
   //photo link
   // https://upload.wikimedia.org/wikipedia/commons/0/07/ISS_post-Nauka_installation_%283D_rendering%29.jpg
@@ -172,7 +185,9 @@ export default scene => {
   scene.add(mercury);
   scene.add(venus);
   scene.add(jupiter);
+  scene.add(europa)
   scene.add(saturn);
+  scene.add(ring);
   scene.add(uranus);
   scene.add(neptune);
   scene.add(pluto);
@@ -236,9 +251,18 @@ export default scene => {
     jupiter.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 600 * Math.cos(2 * Math.PI * Date.now() / 375278400000);
     jupiter.name="jupiter";
 
+    europa.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 650 * Math.sin(2 * Math.PI * Date.now() / 375278400000);
+    europa.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 650 * Math.cos(2 * Math.PI * Date.now() / 375278400000);
+    europa.name="europe";
+
+
     saturn.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.sin(2 * Math.PI * Date.now() / 927158400000);
     saturn.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.cos(2 * Math.PI * Date.now() / 927158400000);
     saturn.name="saturn";
+
+    ring.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1200 * Math.sin(2 * Math.PI * Date.now() / 927158400000);
+    ring.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1200 * Math.cos(2 * Math.PI * Date.now() / 927158400000);
+    ring.name="ring";
 
     uranus.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1400 * Math.sin(2 * Math.PI * Date.now() / 2639563200000);
     uranus.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1400 * Math.cos(2 * Math.PI * Date.now() / 2639563200000);
