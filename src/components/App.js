@@ -12,11 +12,11 @@ function App(){
   }
   return(
     <div>
-    <Header earthFunction={earthFunction}/>
-    <Switch>
-    <Route path='/' render={() => <Home camera={sceneCamera}/>}/>
-    <Route component={Error404} />
-    </Switch>
+      <Header earthFunction={earthFunction}/>
+      <Switch>
+      <Route path='/' render={() => <Home camera={sceneCamera}/>}/>
+      <Route component={Error404} />
+      </Switch>
     </div>
   );
 }

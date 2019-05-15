@@ -21,25 +21,27 @@ constructor(props) {
   render () {
 
     return(
-      <div className={true===this.state.stageVisibleOnPage? "styledBkrnd" : "styledBkrndHide"}>
-      <div onClick={this.menuOpen} className="menuBtn">
-        <div className={true===this.state.stageVisibleOnPage? "xOne" : "hamOne"}></div>
-        <div className={true===this.state.stageVisibleOnPage? "hideBeef" : "hamBeef"}></div>
-        <div className={true===this.state.stageVisibleOnPage? "xTwo" : "hamTwo"}></div>
+      <div className={this.state.stageVisibleOnPage? "styledBkrnd" : "styledBkrndHide"}>
+        <div className="menu">
+          <div onClick={this.menuOpen} className="menuBtn">
+            <div className={this.state.stageVisibleOnPage? "xOne" : "hamOne"}></div>
+            <div className={this.state.stageVisibleOnPage? "hideBeef" : "hamBeef"}></div>
+            <div className={this.state.stageVisibleOnPage? "xTwo" : "hamTwo"}></div>
 
-      </div>
-      <ul className={true===this.state.stageVisibleOnPage? "show" : "hide"}>
-        <li><h1 onClick={() => updateCamera('sun')} className="styledText">Sun</h1></li>
-        <li><h1 onClick={() => updateCamera('mercury')} className="styledText">Mercury</h1></li>
-        <li><h1 onClick={() => updateCamera('venus')} className="styledText">Venus</h1></li>
-        <li><h1 onClick={() => updateCamera('earth')} className="styledText">Earth</h1></li>
-        <li><h1 onClick={() => updateCamera('mars')} className="styledText">Mars</h1></li>
-        <li><h1 onClick={() => updateCamera('jupiter')} className="styledText">Jupiter</h1></li>
-        <li><h1 onClick={() => updateCamera('saturn')} className="styledText">Saturn</h1></li>
-        <li><h1 onClick={() => updateCamera('uranus')} className="styledText">Uranus</h1></li>
-        <li><h1 onClick={() => updateCamera('neptune')} className="styledText">Neptune</h1></li>
-        <li><h1 onClick={() => updateCamera('pluto')} className="styledText">Pluto</h1></li>
-      </ul>
+          </div>
+          <div className={this.state.stageVisibleOnPage? "show" : "hide"}>
+            <h1 onClick={() => updateCamera('sun')}>Sun</h1>
+            <h1 onClick={() => updateCamera('mercury')}>Mercury</h1>
+            <h1 onClick={() => updateCamera('venus')}>Venus</h1>
+            <h1 onClick={() => updateCamera('earth')}>Earth</h1>
+            <h1 onClick={() => updateCamera('mars')}>Mars</h1>
+            <h1 onClick={() => updateCamera('jupiter')}>Jupiter</h1>
+            <h1 onClick={() => updateCamera('saturn')}>Saturn</h1>
+            <h1 onClick={() => updateCamera('uranus')}>Uranus</h1>
+            <h1 onClick={() => updateCamera('neptune')}>Neptune</h1>
+            <h1 onClick={() => updateCamera('pluto')}>Pluto</h1>
+          </div>
+        </div>
       </div>
     );
   }

@@ -5,7 +5,7 @@ function Home(props){
   console.log(props, "in home component")
   return(
     <div>
-      <Model/>
+      <Model />
     </div>
   );
 }
