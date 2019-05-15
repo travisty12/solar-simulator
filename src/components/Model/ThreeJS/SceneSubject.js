@@ -218,8 +218,8 @@ export default scene => {
         error => console.log('An error occured.', error),
       ).then(function(json) {
         if (json) {
-          iss.position.x = 1.0625 * Math.cos(Math.PI * json.longitude / 180) * Math.cos(Math.PI * json.latitude / 180);
-          iss.position.z = -1.0625 * Math.sin(Math.PI * json.longitude / 180) * Math.cos(Math.PI * json.latitude / 180);
+          iss.position.x = 1.0625 * Math.cos(Math.PI * (2 * (Date.now() / 86400000) + json.longitude / 180 + 4 / 3)) * Math.cos(Math.PI * json.latitude / 180);
+          iss.position.z = -1.0625 * Math.sin(Math.PI * (2 * (Date.now() / 86400000) + json.longitude / 180 + 4 / 3)) * Math.cos(Math.PI * json.latitude / 180);
           iss.position.y = 1.0625 * Math.sin(Math.PI * json.latitude / 180);
         }
       });
@@ -228,7 +228,7 @@ export default scene => {
   ring2.rotation.x = Math.PI / 2;
   setInterval(function() {getCoords();}, 5000);
   function update() {
-    // sphere.rotation.y +=0.0000001736;
+    earth.rotation.y = Math.PI * (2 * (Date.now() / 86400000) - 3 / 4) + 0.25;
     cloudMesh.rotation.x += 0.0007;
     cloudMesh.rotation.y -= 0.0001;
     moon.rotation.y +=.000000005879;
@@ -271,8 +271,8 @@ export default scene => {
     jupiter.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 600 * Math.cos(2 * Math.PI * Date.now() / 375278400000);
     jupiter.name="jupiter";
 
-    europa.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 650 * Math.sin(2 * Math.PI * Date.now() / 375278400000);
-    europa.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 650 * Math.cos(2 * Math.PI * Date.now() / 375278400000);
+    europa.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 600 * Math.sin(2 * Math.PI * Date.now() / 375278400000) + 50 * Math.sin(2 * Math.PI * Date.now() / 10000);
+    europa.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 600 * Math.cos(2 * Math.PI * Date.now() / 375278400000) + 50 * Math.cos(2 * Math.PI * Date.now() / 10000);
     europa.name="europe";
 
 
