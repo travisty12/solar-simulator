@@ -123,11 +123,11 @@ export default scene => {
   saturnMaterial.bumpScale = .05;
 
   //create rings
-  let ringGeometry1 = new THREE.RingBufferGeometry( 11, 12, 30 );
+  let ringGeometry1 = new THREE.RingBufferGeometry( 13, 17, 30 );
   let ringMaterial1 = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
   let ringMesh1 = new THREE.Mesh( ringGeometry1, ringMaterial1 );
 
-  let ringGeometry2 = new THREE.RingBufferGeometry( 15, 16, 30 );
+  let ringGeometry2 = new THREE.RingBufferGeometry( 19, 23, 30 );
   let ringMaterial2 = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
   let ringMesh2 = new THREE.Mesh( ringGeometry2, ringMaterial2 );
 
@@ -211,6 +211,8 @@ export default scene => {
         }
       });
   }
+  ring1.rotation.x = Math.PI / 2;
+  ring2.rotation.x = Math.PI / 2;
   setInterval(function() {getCoords();}, 5000);
   function update() {
     // sphere.rotation.y +=0.0000001736;
