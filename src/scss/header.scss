@@ -10,6 +10,7 @@
   0%{opacity: 1}
   100%{opacity: 0}
 }
+
 .styledBkrnd {
   overflow: hidden;
   position: absolute;
@@ -19,8 +20,8 @@
   width: 100vw;
   opacity: .8;
   .menu{
-    animation: slideRight .5s linear, slideOut 1s linear .5s forwards;
-    box-shadow: 0px 0px 10px limegreen;
+    animation: slideRight .5s linear, slideOut .7s linear .5s forwards;
+    box-shadow: 0px 0px 10px yellow;
     overflow: auto;
     scrollbar-width: none;  // Firefox
     width: 50vw;
@@ -51,6 +52,7 @@
 };
 
 .menuBtn {
+  position: absolute;
   height: 40px;
   width: 40px;
   margin-left: 10px;
@@ -135,9 +137,21 @@
 
 .planetInformation{
   position: absolute;
+  border: 1px solid white;
   width: 20%;
-  background-color: white;
   margin-top: 55px;
+  color: white;
+  height: calc(100% - 57px);
+  .earth{
+    padding: 5px;
+    background-color: rgba(255, 252, 247, 0.5);
+    height: 100%;
+  }
+  .mercury{
+    padding: 5px;
+    background-color: rgba(178, 88, 46, 0.4);
+    height: 100%;
+  }
   h1{
     margin: 0;
     padding: 0;

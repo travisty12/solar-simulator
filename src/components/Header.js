@@ -18,6 +18,7 @@ constructor(props) {
   update(planet){
     this.menuOpen();
     updateCamera(planet);
+    this.props.newPlanet({planet})
   }
   render () {
 
