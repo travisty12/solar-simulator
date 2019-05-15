@@ -15,8 +15,9 @@ constructor(props) {
       stageVisibleOnPage: !prevState.stageVisibleOnPage
     }))
   }
-  update(){
-
+  update(planet){
+    this.menuOpen();
+    updateCamera(planet);
   }
   render () {
 
@@ -30,16 +31,16 @@ constructor(props) {
 
           </div>
           <div className={this.state.stageVisibleOnPage? "show" : "hide"}>
-            <h1 onClick={() => updateCamera('sun')}>Sun</h1>
-            <h1 onClick={() => updateCamera('mercury')}>Mercury</h1>
-            <h1 onClick={() => updateCamera('venus')}>Venus</h1>
-            <h1 onClick={() => updateCamera('earth')}>Earth</h1>
-            <h1 onClick={() => updateCamera('mars')}>Mars</h1>
-            <h1 onClick={() => updateCamera('jupiter')}>Jupiter</h1>
-            <h1 onClick={() => updateCamera('saturn')}>Saturn</h1>
-            <h1 onClick={() => updateCamera('uranus')}>Uranus</h1>
-            <h1 onClick={() => updateCamera('neptune')}>Neptune</h1>
-            <h1 onClick={() => updateCamera('pluto')}>Pluto</h1>
+            <h1 onClick={() => this.update('sun')}>Sun</h1>
+            <h1 onClick={() => this.update('mercury')}>Mercury</h1>
+            <h1 onClick={() => this.update('venus')}>Venus</h1>
+            <h1 onClick={() => this.update('earth')}>Earth</h1>
+            <h1 onClick={() => this.update('mars')}>Mars</h1>
+            <h1 onClick={() => this.update('jupiter')}>Jupiter</h1>
+            <h1 onClick={() => this.update('saturn')}>Saturn</h1>
+            <h1 onClick={() => this.update('uranus')}>Uranus</h1>
+            <h1 onClick={() => this.update('neptune')}>Neptune</h1>
+            <h1 onClick={() => this.update('pluto')}>Pluto</h1>
           </div>
         </div>
       </div>
