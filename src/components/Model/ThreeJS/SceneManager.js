@@ -24,13 +24,12 @@ export function updateCamera(arg, sceneInit = scene, cameraInit = camera, contro
       break;
     }
   }
-  console.log(control);
 }
 
 
 export default canvas => {
-  let raycaster = new THREE.Raycaster(); // create once
-  let mouse = new THREE.Vector2(); // create once
+  let raycaster = new THREE.Raycaster();
+  let mouse = new THREE.Vector2();
   camera.position.z =5;
   renderer.setSize( window.innerWidth, window.innerHeight );
   document.body.appendChild ( renderer.domElement );
@@ -46,7 +45,6 @@ export default canvas => {
   controls.enablePan = false;
 
   const sceneSubjects = createSceneSubjects(scene);
-  console.log(sceneSubjects);
   function createSceneSubjects(scene) {
     const sceneSubjects = [
       GeneralLights(scene),
@@ -56,8 +54,6 @@ export default canvas => {
     return sceneSubjects;
   }
   controls.maxDistance = 1750;
-  // setTimeout(function() {
-  // }, 10000);
   let index = 2;
   function update() {
     let position = scene.children[2].position;
@@ -72,7 +68,6 @@ export default canvas => {
     }
     camera.lookAt(position)
     controls.target = position;
-    // controls.update();
     renderer.render(scene, camera);
   }
 
@@ -87,7 +82,6 @@ export default canvas => {
     for (let i = 0; i < intersects.length; i++ ) {
       if (intersects[i].object.name) {
         if (intersects[i].object.name !== scene.children[index].name) {
-          console.log(intersects[i].object.name);
           updateCamera(intersects[i].object.name);
         }
         break;
