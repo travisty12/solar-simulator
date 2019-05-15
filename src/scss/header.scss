@@ -90,7 +90,7 @@
 .xOne,
 .xTwo {
   margin-left: 0;
-  -webkit-transition: transform .5s 1.5s;
+  -webkit-transition: transform .5s;
   transition-timing-function: ease;
 }
 
@@ -109,11 +109,18 @@
 .hamBeef {
   margin-top: 17.5px;
   opacity: 1;
+  transition-timing-function: ease;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+  transition-delay: .2s;
 }
 
 .hideBeef {
   margin-top: 17.5px;
-  animation: hideBeef .1s linear forwards 1.5s;
+  opacity: 0;
+  transition-timing-function: ease;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
 }
 
 .hamOne,

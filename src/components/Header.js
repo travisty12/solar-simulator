@@ -24,13 +24,13 @@ constructor(props) {
 
     return(
       <div className={this.state.stageVisibleOnPage? "styledBkrnd" : "styledBkrndHide"}>
-        <div className="menu">
-          <div onClick={this.menuOpen} className="menuBtn">
-            <div className={this.state.stageVisibleOnPage? "xOne" : "hamOne"}></div>
-            <div className={this.state.stageVisibleOnPage? "hideBeef" : "hamBeef"}></div>
-            <div className={this.state.stageVisibleOnPage? "xTwo" : "hamTwo"}></div>
+      <div onClick={this.menuOpen} className="menuBtn">
+        <div className={this.state.stageVisibleOnPage? "xOne" : "hamOne"}></div>
+        <div className={this.state.stageVisibleOnPage? "hideBeef" : "hamBeef"}></div>
+        <div className={this.state.stageVisibleOnPage? "xTwo" : "hamTwo"}></div>
 
-          </div>
+      </div>
+        <div className="menu">
           <div className={this.state.stageVisibleOnPage? "show" : "hide"}>
             <h1 onClick={() => this.update('sun')}>Sun</h1>
             <h1 onClick={() => this.update('mercury')}>Mercury</h1>
