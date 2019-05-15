@@ -15,10 +15,9 @@ constructor(props) {
       stageVisibleOnPage: !prevState.stageVisibleOnPage
     }))
   }
-  update(arg){
-    let planet = arg;
-    updateCamera(planet)
-    this.props.newPlanet({planet});
+  update(planet){
+    this.menuOpen();
+    updateCamera(planet);
   }
   render () {
 
@@ -32,7 +31,7 @@ constructor(props) {
 
           </div>
           <div className={this.state.stageVisibleOnPage? "show" : "hide"}>
-            <h1 onClick={() => this.update('sun')} value="sun">Sun</h1>
+            <h1 onClick={() => this.update('sun')}>Sun</h1>
             <h1 onClick={() => this.update('mercury')}>Mercury</h1>
             <h1 onClick={() => this.update('venus')}>Venus</h1>
             <h1 onClick={() => this.update('earth')}>Earth</h1>
