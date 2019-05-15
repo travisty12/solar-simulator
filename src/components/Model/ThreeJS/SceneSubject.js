@@ -123,9 +123,13 @@ export default scene => {
   saturnMaterial.bumpScale = .05;
 
   //create rings
-  let ringGeometry = new THREE.RingBufferGeometry( 1, 5, 300 );
-  let ringMaterial = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
-  let ringMesh = new THREE.Mesh( ringGeometry, ringMaterial );
+  let ringGeometry1 = new THREE.RingBufferGeometry( 11, 12, 30 );
+  let ringMaterial1 = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+  let ringMesh1 = new THREE.Mesh( ringGeometry1, ringMaterial1 );
+
+  let ringGeometry2 = new THREE.RingBufferGeometry( 15, 16, 30 );
+  let ringMaterial2 = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+  let ringMesh2 = new THREE.Mesh( ringGeometry2, ringMaterial2 );
 
 //link to look at for reference
 
@@ -164,7 +168,8 @@ export default scene => {
   let jupiter = new THREE.Mesh(jupiterGeometry, jupiterMaterial );
   let europa = new THREE.Mesh(europaGeometry, europaMaterial );
   let saturn = new THREE.Mesh(saturnGeometry, saturnMaterial);
-  let ring = new THREE.Mesh(ringGeometry, ringMaterial);
+  let ring1 = new THREE.Mesh(ringGeometry1, ringMaterial1);
+  let ring2 = new THREE.Mesh(ringGeometry2, ringMaterial2);
   let uranus = new THREE.Mesh(uranusGeometry, uranusMaterial);
   let neptune = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
   let pluto = new THREE.Mesh(plutoGeometry, plutoMaterial);
@@ -187,7 +192,8 @@ export default scene => {
   scene.add(jupiter);
   scene.add(europa)
   scene.add(saturn);
-  scene.add(ring);
+  scene.add(ring1);
+  scene.add(ring2);
   scene.add(uranus);
   scene.add(neptune);
   scene.add(pluto);
@@ -260,9 +266,13 @@ export default scene => {
     saturn.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.cos(2 * Math.PI * Date.now() / 927158400000);
     saturn.name="saturn";
 
-    ring.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1200 * Math.sin(2 * Math.PI * Date.now() / 927158400000);
-    ring.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1200 * Math.cos(2 * Math.PI * Date.now() / 927158400000);
-    ring.name="ring";
+    ring1.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.sin(2 * Math.PI * Date.now() / 927158400000);
+    ring1.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.cos(2 * Math.PI * Date.now() / 927158400000);
+    ring1.name="ring1";
+
+    ring2.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.sin(2 * Math.PI * Date.now() / 927158400000);
+    ring2.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.cos(2 * Math.PI * Date.now() / 927158400000);
+    ring2.name="ring2";
 
     uranus.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1400 * Math.sin(2 * Math.PI * Date.now() / 2639563200000);
     uranus.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1400 * Math.cos(2 * Math.PI * Date.now() / 2639563200000);
