@@ -55,9 +55,7 @@ export default canvas => {
 
     return sceneSubjects;
   }
-  console.log(camera);
-  console.log(controls);
-  console.log(scene);
+  controls.maxDistance = 1750;
   // setTimeout(function() {
   // }, 10000);
   let index = 2;
