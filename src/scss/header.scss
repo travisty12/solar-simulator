@@ -1,10 +1,11 @@
 @keyframes slideRight{
   0%{width: 40px; height: 40px}
-  100%{width: 50vw; height: 40px}
+  100%{width: 400px; height: 40px}
 }
 @keyframes slideOut{
   0%{height: 40px}
-  100%{height: 55vh}
+  100%{height: 75vh;
+  max-height: 600px;}
 }
 @keyframes hideBeef{
   0%{opacity: 1}
@@ -13,7 +14,6 @@
 
 .styledBkrnd {
   overflow: hidden;
-  position: absolute;
   display: flex;
   background-color: black;
   height: 100vh;
@@ -23,11 +23,17 @@
     animation: slideRight .5s linear, slideOut .7s linear .5s forwards;
     box-shadow: 0px 0px 10px yellow;
     overflow: auto;
-    scrollbar-width: none;  // Firefox
-    width: 50vw;
-    height: 55vh;
+    width: 90vw;
+    max-width: 400px;
+    height: 75vh;
+    max-height: 600px;
     border-radius: 5px;
+    padding-top: 100px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     &::-webkit-scrollbar {
       display: none;  // Safari and Chrome
     }
@@ -150,14 +156,25 @@
   position: fixed;
   width: 20%;
   right: 0;
-  top: 40px;
+  top: 65px;
   color: white;
-  height: calc(100% - 42px);
+  height: calc(100% - 67px);
   text-align: center;
+  img{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
   .info{
     overflow: hidden;
     animation: menuDown 1s linear forwards;
     border: 1px solid white;
+    background-color: black;
     padding: 5px;
     height: calc(100% - 10px);
   }
