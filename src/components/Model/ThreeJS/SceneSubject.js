@@ -18,10 +18,11 @@ import venusBump from '../../../assets/images/venusBump.jpg';
 import jupiterPic from '../../../assets/images/jupiterMap.jpg';
 import saturnPic from '../../../assets/images/saturnmap.jpg';
 import uranusPic from '../../../assets/images/uranusmap.jpg';
+import uranusRing from '../../../assets/images/saturn-ring.png';
 import neptunePic from '../../../assets/images/neptunemap.jpg';
-
 import plutoPic from '../../../assets/images/plutomap2k.jpg';
 import plutoBump from '../../../assets/images/plutobump2k.jpg';
+import saturnRingPic from '../../../assets/images/saturnRinger.png';
 
 export default scene => {
   //earth
@@ -122,18 +123,19 @@ export default scene => {
   saturnMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
   saturnMaterial.bumpScale = .05;
 
-  //create rings
-  let ringGeometry1 = new THREE.RingBufferGeometry( 13, 17, 30 );
-  let ringMaterial1 = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+  //saturn rings
+  let ringGeometry1 = new THREE.RingBufferGeometry( 2, 30, 15 );
+  let ringMaterial1 =  new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
+  ringMaterial1.map =  new THREE.TextureLoader().load( saturnRingPic );
+  ringMaterial1.opacity = 0.5;
+  ringMaterial1.transparent = true;
+
   let ringMesh1 = new THREE.Mesh( ringGeometry1, ringMaterial1 );
 
-  let ringGeometry2 = new THREE.RingBufferGeometry( 19, 23, 30 );
-  let ringMaterial2 = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
-  let ringMesh2 = new THREE.Mesh( ringGeometry2, ringMaterial2 );
 
-//link to look at for reference
-
-//threejs.org/docs/index.html#api/en/geometries/RingBufferGeometry
+// link to look at for reference
+//
+// threejs.org/docs/index.html#api/en/geometries/RingBufferGeometry
 
 
   //create uranus
@@ -142,6 +144,17 @@ export default scene => {
   uranusMaterial.map =  new THREE.TextureLoader().load( uranusPic );
   uranusMaterial.bumpMap= new THREE.TextureLoader().load( venusBump );
   uranusMaterial.bumpScale = .05;
+
+  //uranus rings
+
+  let ringGeometry2 = new THREE.RingBufferGeometry( 6, 10, 30 );
+  let ringMaterial2 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );;
+  ringMaterial2.map =  new THREE.TextureLoader().load( uranusRing );
+  ringMaterial2.opacity = 0.6;
+  ringMaterial2.transparent = true;
+
+  let ringMesh2 = new THREE.Mesh( ringGeometry2, ringMaterial2 );
+
 
   //create neptune
   let neptuneGeometry = new THREE.SphereBufferGeometry(3.88, 30, 30 );
@@ -229,7 +242,6 @@ export default scene => {
     neptune.rotation.y+=0.005;
     uranus.rotation.y+=0.005;
     pluto.rotation.y +=0.005;
-    //overall positioning
     earth.name="earth";
 
     sun.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
@@ -272,13 +284,14 @@ export default scene => {
     ring1.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.cos(2 * Math.PI * Date.now() / 927158400000);
     ring1.name="ring1";
 
-    ring2.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.sin(2 * Math.PI * Date.now() / 927158400000);
-    ring2.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1100 * Math.cos(2 * Math.PI * Date.now() / 927158400000);
-    ring2.name="ring2";
 
     uranus.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1400 * Math.sin(2 * Math.PI * Date.now() / 2639563200000);
     uranus.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1400 * Math.cos(2 * Math.PI * Date.now() / 2639563200000);
     uranus.name="uranus";
+
+    ring2.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1400 * Math.sin(2 * Math.PI * Date.now() / 2639563200000);
+    ring2.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1400 * Math.cos(2 * Math.PI * Date.now() / 2639563200000);
+    ring2.name="ring2";
 
     neptune.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1700 * Math.sin(2 * Math.PI * Date.now() / 516244320000);
     neptune.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 1700 * Math.cos(2 * Math.PI * Date.now() / 516244320000);
