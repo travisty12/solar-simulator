@@ -5,7 +5,7 @@ function Home(props){
 
   return(
     <div>
-      <Model/>
+      <Model/> 
     </div>
   );
 }

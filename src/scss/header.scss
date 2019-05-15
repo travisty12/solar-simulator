@@ -10,6 +10,7 @@
   0%{opacity: 1}
   100%{opacity: 0}
 }
+
 .styledBkrnd {
   overflow: hidden;
   position: absolute;
@@ -19,8 +20,8 @@
   width: 100vw;
   opacity: .8;
   .menu{
-    animation: slideRight .5s linear, slideOut 1s linear .5s forwards;
-    box-shadow: 0px 0px 10px limegreen;
+    animation: slideRight .5s linear, slideOut .7s linear .5s forwards;
+    box-shadow: 0px 0px 10px yellow;
     overflow: auto;
     scrollbar-width: none;  // Firefox
     width: 50vw;
@@ -51,6 +52,7 @@
 };
 
 .menuBtn {
+  position: absolute;
   height: 40px;
   width: 40px;
   margin-left: 10px;
@@ -140,11 +142,28 @@
   // transition-delay: 1s;
 }
 
+@keyframes menuDown{
+  0%{height: 0px}
+  100%{height: calc(100% - 10px)}
+}
 .planetInformation{
-  position: absolute;
+  position: fixed;
   width: 20%;
-  background-color: white;
-  margin-top: 55px;
+  right: 0;
+  top: 40px;
+  color: white;
+  height: calc(100% - 42px);
+  text-align: center;
+  .info{
+    overflow: hidden;
+    animation: menuDown 1s linear forwards;
+    border: 1px solid white;
+    padding: 5px;
+    height: calc(100% - 10px);
+  }
+  .hideMenu{
+    display: none;
+  }
   h1{
     margin: 0;
     padding: 0;
