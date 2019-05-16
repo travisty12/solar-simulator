@@ -23,7 +23,7 @@ import neptunePic from '../../../assets/images/neptunemap.jpg';
 import plutoPic from '../../../assets/images/plutomap2k.jpg';
 import plutoBump from '../../../assets/images/plutobump2k.jpg';
 import saturnRingPic from '../../../assets/images/saturnRinger.png';
-import orbitRings from '../../../assets/images/ourPeachLane.png';
+import orbitRings from '../../../assets/images/customRing.png';
 
 export default scene => {
   //earth
@@ -327,15 +327,15 @@ export default scene => {
     uranus.rotation.y+=0.005;
     pluto.rotation.y +=0.005;
 
-    orbit1.rotation.z = Math.PI * (2 * (Date.now() / 5640));
-    orbit2.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 1/4);
-    orbit3.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 1/2);
-    orbit4.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 3/4);
-    orbit5.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 1);
-    orbit6.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 5/4);
-    orbit7.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 3/2);
-    orbit8.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 7/4);
-    orbit9.rotation.z = Math.PI * (2 * (Date.now() / 5640));
+    orbit1.rotation.z = Math.PI * (2 * (Date.now() / 564000));
+    orbit2.rotation.z = Math.PI * (2 * (Date.now() / 564000) + 1/4);
+    orbit3.rotation.z = Math.PI * (2 * (Date.now() / 564000) + 1/2);
+    orbit4.rotation.z = Math.PI * (2 * (Date.now() / 564000) + 3/4);
+    orbit5.rotation.z = Math.PI * (2 * (Date.now() / 564000) + 1);
+    orbit6.rotation.z = Math.PI * (2 * (Date.now() / 564000) + 5/4);
+    orbit7.rotation.z = Math.PI * (2 * (Date.now() / 564000) + 3/2);
+    orbit8.rotation.z = Math.PI * (2 * (Date.now() / 564000) + 7/4);
+    orbit9.rotation.z = Math.PI * (2 * (Date.now() / 564000));
 
 
 
