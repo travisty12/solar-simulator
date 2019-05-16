@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 
 function Home({dispatch}){
 
-  // <Model/>
   return(
     <div>
+      <Model/>
     </div>
   );
 }
