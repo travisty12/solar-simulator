@@ -23,6 +23,7 @@ import neptunePic from '../../../assets/images/neptunemap.jpg';
 import plutoPic from '../../../assets/images/plutomap2k.jpg';
 import plutoBump from '../../../assets/images/plutobump2k.jpg';
 import saturnRingPic from '../../../assets/images/saturnRinger.png';
+import orbitRings from '../../../assets/images/orbitRinger.png';
 
 export default scene => {
   //earth
@@ -167,49 +168,58 @@ export default scene => {
   plutoMaterial.bumpMap= new THREE.TextureLoader().load( plutoBump);
   plutoMaterial.bumpScale = .05;
 
-  let orbitGeo1 = new THREE.RingBufferGeometry( 295, 305, 30 );
-  let orbitMat1 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
-  orbitMat1.opacity = 0.4;
+  let orbitGeo1 = new THREE.RingBufferGeometry( 295, 305, 300 );
+  let orbitMat1 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
+  orbitMat1.map = new THREE.TextureLoader().load( orbitRings );
+  orbitMat1.opacity = 0.9;
   orbitMat1.transparent = true;
 
-  let orbitGeo2 = new THREE.RingBufferGeometry( 445, 455, 30 );
-  let orbitMat2 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
-  orbitMat2.opacity = 0.4;
+
+  let orbitGeo2 = new THREE.RingBufferGeometry( 445, 455, 300 );
+  let orbitMat2 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
+  orbitMat2.map = new THREE.TextureLoader().load( orbitRings );
+  orbitMat2.opacity = 0.9;
   orbitMat2.transparent = true;
 
-  let orbitGeo3 = new THREE.RingBufferGeometry( 595, 605, 30 );
-  let orbitMat3 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
-  orbitMat3.opacity = 0.4;
+  let orbitGeo3 = new THREE.RingBufferGeometry( 595, 605, 300 );
+  let orbitMat3 = new THREE.MeshPhongMaterial( { side: THREE.DoubleSide} );
+  orbitMat3.map = new THREE.TextureLoader().load( orbitRings );
+  orbitMat3.opacity = 0.9;
   orbitMat3.transparent = true;
 
-  let orbitGeo4 = new THREE.RingBufferGeometry( 795, 805, 30 );
-  let orbitMat4 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
-  orbitMat4.opacity = 0.4;
-  orbitMat4.transparent = true;
+  let orbitGeo4 = new THREE.RingBufferGeometry( 795, 805, 300 );
+  let orbitMat4 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
+  orbitMat4.map = new THREE.TextureLoader().load( orbitRings );
 
-  let orbitGeo5 = new THREE.RingBufferGeometry( 995, 1005, 30 );
-  let orbitMat5 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
-  orbitMat5.opacity = 0.4;
+
+  let orbitGeo5 = new THREE.RingBufferGeometry( 995, 1005, 300 );
+  let orbitMat5 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
+  orbitMat5.map = new THREE.TextureLoader().load( orbitRings );
+  orbitMat5.opacity = 0.9;
   orbitMat5.transparent = true;
 
-  let orbitGeo6 = new THREE.RingBufferGeometry( 1095, 1105, 30 );
-  let orbitMat6 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
-  orbitMat6.opacity = 0.4;
+  let orbitGeo6 = new THREE.RingBufferGeometry( 1095, 1105, 300 );
+  let orbitMat6 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
+  orbitMat6.map = new THREE.TextureLoader().load( orbitRings );
+  orbitMat6.opacity = 0.9;
   orbitMat6.transparent = true;
 
-  let orbitGeo7 = new THREE.RingBufferGeometry( 1395, 1405, 30 );
-  let orbitMat7 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
-  orbitMat7.opacity = 0.4;
+  let orbitGeo7 = new THREE.RingBufferGeometry( 1395, 1405, 300 );
+  let orbitMat7 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
+  orbitMat7.map = new THREE.TextureLoader().load( orbitRings );
+  orbitMat7.opacity = 0.9;
   orbitMat7.transparent = true;
 
-  let orbitGeo8 = new THREE.RingBufferGeometry( 1695, 1705, 30 );
-  let orbitMat8 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
-  orbitMat8.opacity = 0.4;
+  let orbitGeo8 = new THREE.RingBufferGeometry( 1695, 1705, 300 );
+  let orbitMat8 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
+  orbitMat8.map = new THREE.TextureLoader().load( orbitRings );
+  orbitMat8.opacity = 0.9;
   orbitMat8.transparent = true;
 
-  let orbitGeo9 = new THREE.RingBufferGeometry( 1895, 1905, 30 );
-  let orbitMat9 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
-  orbitMat9.opacity = 0.4;
+  let orbitGeo9 = new THREE.RingBufferGeometry( 1895, 1905, 300 );
+  let orbitMat9 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
+  orbitMat9.map = new THREE.TextureLoader().load( orbitRings );
+  orbitMat9.opacity = 0.9;
   orbitMat9.transparent = true;
 
   let moon = new THREE.Mesh(moonGeometry, moonMaterial);
@@ -285,6 +295,7 @@ export default scene => {
       });
   }
   ring2.rotation.x = Math.PI / 2;
+
   orbit1.rotation.x = Math.PI / 2;
   orbit2.rotation.x = Math.PI / 2;
   orbit3.rotation.x = Math.PI / 2;
@@ -314,6 +325,18 @@ export default scene => {
     neptune.rotation.y+=0.005;
     uranus.rotation.y+=0.005;
     pluto.rotation.y +=0.005;
+
+    orbit1.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
+    orbit2.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
+    orbit3.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
+    orbit4.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
+    orbit5.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
+    orbit6.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
+    orbit7.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
+    orbit8.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
+    orbit9.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
+
+
 
     earth.position.x = 600 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
     earth.position.z = 600 * Math.cos(2 * Math.PI * Date.now() / 31536000000);

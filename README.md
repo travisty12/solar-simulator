@@ -1,11 +1,13 @@
 # Solar Simulator
-##### Solar system 3D model built with three.js and React, Epicodus team-week project, 5/15/19
+##### Solar system 3D model built in React utilizing threeJS
 
-By Ian Cook Westgate Robbie Kruszynski, Ryan McLean, Slater Smith, and Travis Toal
+By: Travis Toal, Robbie Kruszynski, Ryan McLean, Slater Smith, and Ian Cook Westgate
 
 ## Description
 
-The Solar Simulator is designed with two goals in mind. First, use the three.js Javascript 3D library to depict a visually stunning and responsive reproduction of the solar system. Second, utilize the International Space Station's (ISS) API to give an approximate portrayal of its current location in orbit around Earth.
+The Solar System Simulator was designed with two goals in mind.
+* First, use the three.js Javascript 3D library to depict a visually stunning and responsive reproduction of the solar system.
+* Second, utilize the International Space Station's (ISS) API to showcase its current location in orbit around Earth.
 
 ## User Stories
 
@@ -26,42 +28,43 @@ These fictional user stories were built to provide behavior-driven guidelines fo
 
 ## Site Features
 
-* The solar system (not to scale) is visually depicted on the screen. This includes all planets, the sun, and Earth's moon.
-* The user can use their mousewheel along with click and drag on the screen in order to change the visual direction. This is currently locked to Earth's position.
-* The user can view the ISS's approximate position in orbit around Earth, updated every 5 seconds from NASA's API.
+* The solar system is visually depicted on the screen. This includes all planets (including Pluto), the sun, and the ISS
+* The user can use their mousewheel along with click and drag on the screen in order to change the visual direction.
+* The user on mobile can touch / pinch / drag on the screen in order to change the visual direction.
+* There are visual rings to demonstrate their orbit along with help guide the eye to locate planets when zoomed out.
+* The user can view the ISS's approximate position in orbit around Earth, updated every 5 seconds from wheretheissat API.
 * The user can select the different planets in the upper-left header menu to navigate to any planet or the sun.
-* The user can view educational content about any selected planet or the sun by clicking the top-right menu icon.
+* The user can view educational content about any selected planet or the sun by clicking the top-right menu (i) icon.
 * The user can see the location of the International Space Station in relation to the earth, appearing as a red orb.
-
-## Future Features
-
-* Zooming into the ISS's position should let the user view a picture of what the interior of the ISS looks like to the astronauts who use it.
+* Accurate rotational speed for the earth (24h) and moon ( 28 days around the earth )
 
 ## Technologies Used
 
 * JavaScript
   * three.js
   * React
-* Node Packet Manager (NPM)
+* (npx create-react-app)
 * Babel
 * Webpack
 * ESLint
 
 ## Component Structure    
 
-<img src="src/assets/images/component-map.JPG" alt="drawing" width="50%"/>
+<img src="src/assets/images/tree.jpg" alt="drawing" width="50%"/>
 
 ## Known Bugs
 
-* Load times can be laggy, affecting animations at times.
+* None as of 05/16/2019
 
 ## Support and contact details
 
-_Email iancookwestgate@gmail.com with any questions._
+_Email travisty12@gmail.com with any questions._
+_Email rmclean@gmail.com with any questions._
+_Email robbiekruszynski@gmail.com with any questions._
+
 
 ## License
 
 This software is licensed under the MIT license.
 
-Copyright (c) 2019 **Robbie Kruszynski**, **Ryan McLean**, **Travis Toal**,**Slater Smith**, **Ian Cook Westgate**, and **Ian Cook Westgate**
-
+Copyright (c) 2019 **Robbie Kruszynski**, **Ryan McLean**, **Travis Toal**
