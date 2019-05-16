@@ -326,15 +326,15 @@ export default scene => {
     uranus.rotation.y+=0.005;
     pluto.rotation.y +=0.005;
 
-    orbit1.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
-    orbit2.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
-    orbit3.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
-    orbit4.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
-    orbit5.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
-    orbit6.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
-    orbit7.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
-    orbit8.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
-    orbit9.rotation.z = Math.PI * (2 * (Date.now() / 5640) - 3 / 4) + 0.25;
+    orbit1.rotation.z = Math.PI * (2 * (Date.now() / 5640));
+    orbit2.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 1/4);
+    orbit3.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 1/2);
+    orbit4.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 3/4);
+    orbit5.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 1);
+    orbit6.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 5/4);
+    orbit7.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 3/2);
+    orbit8.rotation.z = Math.PI * (2 * (Date.now() / 5640) + 7/4);
+    orbit9.rotation.z = Math.PI * (2 * (Date.now() / 5640));
 
 
 
