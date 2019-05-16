@@ -125,14 +125,11 @@ export default scene => {
   saturnMaterial.bumpScale = .05;
 
   //saturn rings
-  let ringGeometry1 = new THREE.RingBufferGeometry( 2, 30, 15 );
+  let ringGeometry1 = new THREE.RingBufferGeometry( 9.5, 20, 15 );
   let ringMaterial1 =  new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
   ringMaterial1.map =  new THREE.TextureLoader().load( saturnRingPic );
   ringMaterial1.opacity = 0.5;
   ringMaterial1.transparent = true;
-
-  let ringMesh1 = new THREE.Mesh( ringGeometry1, ringMaterial1 );
-
 
 // link to look at for reference
 //
@@ -291,13 +288,12 @@ export default scene => {
         error => console.log('An error occured.', error),
       ).then(function(json) {
         if (json) {
-          iss.position.x = 600 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1.0625 * Math.cos(Math.PI * (2 * (Date.now() / 86400000) + json.longitude / 180 + 4 / 3)) * Math.cos(Math.PI * json.latitude / 180);
-          iss.position.z = 600 * Math.cos(2 * Math.PI * Date.now() / 31536000000) - 1.0625 * Math.sin(Math.PI * (2 * (Date.now() / 86400000) + json.longitude / 180 + 4 / 3)) * Math.cos(Math.PI * json.latitude / 180);
+          iss.position.x = 600 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 1.0625 * Math.cos(Math.PI * (2 * (1 / 6 + Date.now() / 86400000) + json.longitude / 180)) * Math.cos(Math.PI * json.latitude / 180);
+          iss.position.z = 600 * Math.cos(2 * Math.PI * Date.now() / 31536000000) - 1.0625 * Math.sin(Math.PI * (2 * (1 / 6 + Date.now() / 86400000) + json.longitude / 180)) * Math.cos(Math.PI * json.latitude / 180);
           iss.position.y = 1.0625 * Math.sin(Math.PI * json.latitude / 180);
         }
       });
   }
-  ring1.rotation.x = Math.PI / 2;
   ring2.rotation.x = Math.PI / 2;
 
   orbit1.rotation.x = Math.PI / 2;
@@ -311,7 +307,11 @@ export default scene => {
   orbit9.rotation.x = Math.PI / 2;
   setInterval(function() {getCoords();}, 5000);
   function update() {
-    earth.rotation.y = Math.PI * (2 * (Date.now() / 86400000) - 3 / 4) + 0.25;
+    ring1.rotation.x = Math.PI / 2 + Math.PI * Math.sin(Math.PI * Date.now() / 500000) / 6;
+    ring1.rotation.z = Math.PI / 2 + Math.PI * Math.cos(Math.PI * Date.now() / 500000) / 6;
+    ring2.rotation.x = Math.PI / 2 + Math.PI * Math.sin(Math.PI * Date.now() / 1200000 + 1/2) / 6;
+    ring2.rotation.z = Math.PI / 2 + Math.PI * Math.cos(Math.PI * Date.now() / 1200000 + 1/2) / 6;
+    earth.rotation.y = Math.PI * (2 * (Date.now() / 86400000 + 1 / 6));
     cloudMesh.rotation.x += 0.0007;
     cloudMesh.rotation.y -= 0.0001;
     moon.rotation.y +=.000000005879;
@@ -389,50 +389,51 @@ export default scene => {
     sunCloudMesh.position.z = 0;
 
 
-    mercury.position.x =  300 * Math.sin(2 * Math.PI * Date.now() / 7600176000);
-    mercury.position.z =  300 * Math.cos(2 * Math.PI * Date.now() / 7600176000);
+    mercury.position.x =  300 * Math.sin(2 * Math.PI * (Date.now() / 7600176000 - 1/6));
+    mercury.position.z =  300 * Math.cos(2 * Math.PI * (Date.now() / 7600176000 - 1/6));
     mercury.name="mercury";
 
-    venus.position.x =  450 * Math.sin(2 * Math.PI * Date.now() / 19394640000);
-    venus.position.z =  450 * Math.cos(2 * Math.PI * Date.now() / 19394640000);
+    venus.position.x =  450 * Math.sin(2 * Math.PI * (Date.now() / 19394640000 + 3/8));
+    venus.position.z =  450 * Math.cos(2 * Math.PI * (Date.now() / 19394640000 + 3/8));
     venus.name="venus";
 
-    moon.position.x = 600 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 3 * Math.sin(2 * Math.PI * Date.now() / 2551392000);
-    moon.position.z = 600 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 3 * Math.cos(2 * Math.PI * Date.now() / 2551392000);
+    moon.position.x = 600 * Math.sin(2 * Math.PI * Date.now() / 31536000000) + 3 * Math.sin(2 * Math.PI * (Date.now() / 2551392000 + 1/2));
+    moon.position.z = 600 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 3 * Math.cos(2 * Math.PI * (Date.now() / 2551392000 + 1/2));
+    moon.name = "moon";
 
-    mars.position.x =  800 * Math.sin(2 * Math.PI * Date.now() / 59287680000);
-    mars.position.z =  800 * Math.cos(2 * Math.PI * Date.now() / 59287680000);
+    mars.position.x =  800 * Math.sin(2 * Math.PI * (Date.now() / 59287680000 - 1/4));
+    mars.position.z =  800 * Math.cos(2 * Math.PI * (Date.now() / 59287680000 - 1/4));
     mars.name="mars";
 
-    jupiter.position.x =  1000 * Math.sin(2 * Math.PI * Date.now() / 375278400000);
-    jupiter.position.z =  1000 * Math.cos(2 * Math.PI * Date.now() / 375278400000);
+    jupiter.position.x =  1000 * Math.sin(2 * Math.PI * (Date.now() / 375278400000 + 1/4));
+    jupiter.position.z =  1000 * Math.cos(2 * Math.PI * (Date.now() / 375278400000 + 1/4));
     jupiter.name="jupiter";
 
-    europa.position.x =  1000 * Math.sin(2 * Math.PI * Date.now() / 375278400000) + 50 * Math.sin(2 * Math.PI * Date.now() / 10000);
-    europa.position.z =  1000 * Math.cos(2 * Math.PI * Date.now() / 375278400000) + 50 * Math.cos(2 * Math.PI * Date.now() / 10000);
+    europa.position.x =  1000 * Math.sin(2 * Math.PI * (Date.now() / 375278400000 + 1/4)) + 50 * Math.sin(2 * Math.PI * Date.now() / 10000000);
+    europa.position.z =  1000 * Math.cos(2 * Math.PI * (Date.now() / 375278400000 + 1/4)) + 50 * Math.cos(2 * Math.PI * Date.now() / 10000000);
+    europa.name = "europa";
 
-
-    saturn.position.x =  1100 * Math.sin(2 * Math.PI * Date.now() / 927158400000);
-    saturn.position.z =  1100 * Math.cos(2 * Math.PI * Date.now() / 927158400000);
+    saturn.position.x =  1100 * Math.sin(2 * Math.PI * (Date.now() / 927158400000 - 1/8));
+    saturn.position.z =  1100 * Math.cos(2 * Math.PI * (Date.now() / 927158400000 - 1/8));
     saturn.name="saturn";
 
-    ring1.position.x =  1100 * Math.sin(2 * Math.PI * Date.now() / 927158400000);
-    ring1.position.z =  1100 * Math.cos(2 * Math.PI * Date.now() / 927158400000);
+    ring1.position.x =  1100 * Math.sin(2 * Math.PI * (Date.now() / 927158400000 - 1/8));
+    ring1.position.z =  1100 * Math.cos(2 * Math.PI * (Date.now() / 927158400000 - 1/8));
 
 
-    uranus.position.x =  1400 * Math.sin(2 * Math.PI * Date.now() / 2639563200000);
-    uranus.position.z =  1400 * Math.cos(2 * Math.PI * Date.now() / 2639563200000);
+    uranus.position.x =  1400 * Math.sin(2 * Math.PI * (Date.now() / 2639563200000 + 1/4));
+    uranus.position.z =  1400 * Math.cos(2 * Math.PI * (Date.now() / 2639563200000 + 1/4));
     uranus.name="uranus";
 
-    ring2.position.x =  1400 * Math.sin(2 * Math.PI * Date.now() / 2639563200000);
-    ring2.position.z =  1400 * Math.cos(2 * Math.PI * Date.now() / 2639563200000);
+    ring2.position.x =  1400 * Math.sin(2 * Math.PI * (Date.now() / 2639563200000 + 1/4));
+    ring2.position.z =  1400 * Math.cos(2 * Math.PI * (Date.now() / 2639563200000 + 1/4));
 
-    neptune.position.x =  1700 * Math.sin(2 * Math.PI * Date.now() / 516244320000);
-    neptune.position.z =  1700 * Math.cos(2 * Math.PI * Date.now() / 516244320000);
+    neptune.position.x =  1700 * Math.sin(2 * Math.PI * (Date.now() / 516244320000 - 1/4));
+    neptune.position.z =  1700 * Math.cos(2 * Math.PI * (Date.now() / 516244320000 - 1/4));
     neptune.name="neptune";
 
-    pluto.position.x =  1900 * Math.sin(2 * Math.PI * Date.now() / 7817774400000);
-    pluto.position.z =  1900 * Math.cos(2 * Math.PI * Date.now() / 7817774400000);
+    pluto.position.x =  1900 * Math.sin(2 * Math.PI * (Date.now() / 7817774400000 + 3/8));
+    pluto.position.z =  1900 * Math.cos(2 * Math.PI * (Date.now() / 7817774400000 + 3/8));
     pluto.name="pluto";
 
 
