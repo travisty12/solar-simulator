@@ -410,8 +410,8 @@ export default scene => {
     jupiter.position.z =  1000 * Math.cos(2 * Math.PI * (Date.now() / 375278400000 + 1/4));
     jupiter.name="jupiter";
 
-    europa.position.x =  1000 * Math.sin(2 * Math.PI * (Date.now() / 375278400000 + 1/4)) + 50 * Math.sin(2 * Math.PI * Date.now() / 10000000);
-    europa.position.z =  1000 * Math.cos(2 * Math.PI * (Date.now() / 375278400000 + 1/4)) + 50 * Math.cos(2 * Math.PI * Date.now() / 10000000);
+    europa.position.x =  1000 * Math.sin(2 * Math.PI * (Date.now() / 375278400000 + 1/4)) + 50 * Math.sin(2 * Math.PI * Date.now() / 12871759);
+    europa.position.z =  1000 * Math.cos(2 * Math.PI * (Date.now() / 375278400000 + 1/4)) + 50 * Math.cos(2 * Math.PI * Date.now() / 12871759);
     europa.name = "europa";
 
     saturn.position.x =  1100 * Math.sin(2 * Math.PI * (Date.now() / 927158400000 - 1/8));
