@@ -63,6 +63,18 @@ function PlanetInformation(props){
       <h1>Pluto</h1>
       <p>Pluto is the largest and second-most-massive (after Eris) known dwarf planet in the Solar System, and the ninth-largest and tenth-most-massive known object directly orbiting the Sun. It is the largest known trans-Neptunian object by volume but is less massive than Eris. Like other Kuiper belt objects, Pluto is primarily made of ice and rock and is relatively small—about one-sixth the mass of the Moon and one-third its volume.</p>
     </div>
+  } else if(props.planet === "moon"){
+    planetInformation =
+    <div>
+      <h1>Luna</h1>
+      <p>Our moon is responsible for the changing of the tides, and Earth’s only natural satellite. It is thought to have formed about four and a half billion years ago, from debris knocked off of our planet from an asteroid. It rotates approximately once every 28 days.</p>
+    </div>
+  } else if(props.planet === "europa"){
+    planetInformation =
+    <div>
+      <h1>Europa</h1>
+      <p>One of the moons of Jupiter, Europa is the most-likely orbiting body in our solar system to hold life outside of Earth. It has an icy crust, which many theorize covers a warm ocean over an iron-nickel core. It rotates around Jupiter in approximately 85 hours.</p>
+    </div>
   }
 
   return(
