@@ -4,16 +4,13 @@ import Home from './Home';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import Error404 from './Error404';
 import PlanetInformation from './PlanetInformation';
-function App(){
-  const [planet, setPlanet] = useState('earth');
+import {connect} from 'react-redux';
 
-  function thisPlanet(info){
-    setPlanet(info.planet)
-  }
+function App({planet}){
 
   return(
     <div>
-      <Header newPlanet={thisPlanet}/>
+      <Header/>
       <PlanetInformation planet={planet}/>
       <Switch>
       <Route path='/' component={Home}/>
@@ -23,4 +20,7 @@ function App(){
   );
 }
 
-export default withRouter(App);
+const mapStateToProps = state => ({
+  planet: state
+})
+export default withRouter(connect(mapStateToProps)(App));

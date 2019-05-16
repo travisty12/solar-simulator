@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import SceneSubject from './SceneSubject';
 import GeneralLights from './GeneralLights';
 import OrbitControls from 'three-orbitcontrols'
+import {store} from '../../../index';
+import {updatePlanet} from '../../../actions';
 
 let planet = 'earth';
 let scene = new THREE.Scene ( );
@@ -84,6 +86,7 @@ export default canvas => {
       if (intersects[i].object.name) {
         if (intersects[i].object.name !== scene.children[index].name) {
           updateCamera(intersects[i].object.name);
+          store.dispatch(updatePlanet(intersects[i].object.name))
         }
         break;
       }

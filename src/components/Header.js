@@ -1,8 +1,11 @@
 import React from 'react';
 import {updateCamera} from './Model/ThreeJS/SceneManager';
+import {connect} from 'react-redux';
+import {updatePlanet} from '../actions'
+
 class Header extends React.Component{
 
-constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       stageVisibleOnPage: false,
@@ -16,9 +19,10 @@ constructor(props) {
     }))
   }
   update(planet){
+    const {dispatch} = this.props;
     this.menuOpen();
     updateCamera(planet);
-    this.props.newPlanet({planet})
+    dispatch(updatePlanet(planet))
   }
   render () {
 
@@ -49,4 +53,4 @@ constructor(props) {
   }
 }
 
-export default Header;
+export default connect()(Header);
