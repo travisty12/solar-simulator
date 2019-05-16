@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Header from './Header';
 import Home from './Home';
 import { Switch, Route, withRouter } from 'react-router-dom';
