@@ -13,7 +13,7 @@ The Solar System Simulator was designed with two goals in mind.
 
 * Using your terminal, clone this repo by inputting `git clone https://github.com/travisty12/solar-simulator.git`.
 * Navigate to the folder in the terminal by typing in: `cd solar-simulator`.
-* In your terminal, if you intend to view the code and want to make the React pages more legible, enter `apm install react`, and open the file with 'atom .'.
+* In your terminal, if you intend to view the code and want to make the React pages more legible, enter `apm install react`, and open the file with `atom .`.
 * In your terminal, enter `npm install` to install necessary dependencies.
 * Then enter `npm run start` to view the project, which will be opened in a new browser tab.
 
