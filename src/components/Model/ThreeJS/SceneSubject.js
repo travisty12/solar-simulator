@@ -148,7 +148,7 @@ export default scene => {
   //uranus rings
 
   let ringGeometry2 = new THREE.RingBufferGeometry( 6, 10, 30 );
-  let ringMaterial2 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );;
+  let ringMaterial2 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
   ringMaterial2.map =  new THREE.TextureLoader().load( uranusRing );
   ringMaterial2.opacity = 0.6;
   ringMaterial2.transparent = true;
@@ -170,6 +170,51 @@ export default scene => {
   plutoMaterial.bumpMap= new THREE.TextureLoader().load( plutoBump);
   plutoMaterial.bumpScale = .05;
 
+  let orbitGeo1 = new THREE.RingBufferGeometry( 265, 275, 30 );
+  let orbitMat1 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
+  orbitMat1.opacity = 0.4;
+  orbitMat1.transparent = true;
+
+  let orbitGeo2 = new THREE.RingBufferGeometry( 295, 305, 30 );
+  let orbitMat2 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
+  orbitMat2.opacity = 0.4;
+  orbitMat2.transparent = true;
+
+  let orbitGeo3 = new THREE.RingBufferGeometry( 395, 405, 30 );
+  let orbitMat3 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
+  orbitMat3.opacity = 0.4;
+  orbitMat3.transparent = true;
+
+  let orbitGeo4 = new THREE.RingBufferGeometry( 495, 505, 30 );
+  let orbitMat4 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
+  orbitMat4.opacity = 0.4;
+  orbitMat4.transparent = true;
+
+  let orbitGeo5 = new THREE.RingBufferGeometry( 595, 605, 30 );
+  let orbitMat5 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
+  orbitMat5.opacity = 0.4;
+  orbitMat5.transparent = true;
+
+  let orbitGeo6 = new THREE.RingBufferGeometry( 1095, 1105, 30 );
+  let orbitMat6 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
+  orbitMat6.opacity = 0.4;
+  orbitMat6.transparent = true;
+
+  let orbitGeo7 = new THREE.RingBufferGeometry( 1395, 1405, 30 );
+  let orbitMat7 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
+  orbitMat7.opacity = 0.4;
+  orbitMat7.transparent = true;
+
+  let orbitGeo8 = new THREE.RingBufferGeometry( 1695, 1705, 30 );
+  let orbitMat8 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
+  orbitMat8.opacity = 0.4;
+  orbitMat8.transparent = true;
+
+  let orbitGeo9 = new THREE.RingBufferGeometry( 1895, 1905, 30 );
+  let orbitMat9 = new THREE.MeshPhongMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
+  orbitMat9.opacity = 0.4;
+  orbitMat9.transparent = true;
+
   let moon = new THREE.Mesh(moonGeometry, moonMaterial);
   let mars = new THREE.Mesh(marsGeometry, marsMaterial);
   let cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
@@ -186,6 +231,15 @@ export default scene => {
   let uranus = new THREE.Mesh(uranusGeometry, uranusMaterial);
   let neptune = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
   let pluto = new THREE.Mesh(plutoGeometry, plutoMaterial);
+  let orbit1 = new THREE.Mesh(orbitGeo1, orbitMat1);
+  let orbit2 = new THREE.Mesh(orbitGeo2, orbitMat2);
+  let orbit3 = new THREE.Mesh(orbitGeo3, orbitMat3);
+  let orbit4 = new THREE.Mesh(orbitGeo4, orbitMat4);
+  let orbit5 = new THREE.Mesh(orbitGeo5, orbitMat5);
+  let orbit6 = new THREE.Mesh(orbitGeo6, orbitMat6);
+  let orbit7 = new THREE.Mesh(orbitGeo7, orbitMat7);
+  let orbit8 = new THREE.Mesh(orbitGeo8, orbitMat8);
+  let orbit9 = new THREE.Mesh(orbitGeo9, orbitMat9);
 
   // better iss build plans
   //photo link
@@ -210,6 +264,15 @@ export default scene => {
   scene.add(uranus);
   scene.add(neptune);
   scene.add(pluto);
+  scene.add(orbit1);
+  scene.add(orbit2);
+  scene.add(orbit3);
+  scene.add(orbit4);
+  scene.add(orbit5);
+  scene.add(orbit6);
+  scene.add(orbit7);
+  scene.add(orbit8);
+  scene.add(orbit9);
 
   function getCoords() {
     fetch('https://api.wheretheiss.at/v1/satellites/25544?units=miles')
@@ -226,6 +289,15 @@ export default scene => {
   }
   ring1.rotation.x = Math.PI / 2;
   ring2.rotation.x = Math.PI / 2;
+  orbit1.rotation.x = Math.PI / 2;
+  orbit2.rotation.x = Math.PI / 2;
+  orbit3.rotation.x = Math.PI / 2;
+  orbit4.rotation.x = Math.PI / 2;
+  orbit5.rotation.x = Math.PI / 2;
+  orbit6.rotation.x = Math.PI / 2;
+  orbit7.rotation.x = Math.PI / 2;
+  orbit8.rotation.x = Math.PI / 2;
+  orbit9.rotation.x = Math.PI / 2;
   setInterval(function() {getCoords();}, 5000);
   function update() {
     earth.rotation.y = Math.PI * (2 * (Date.now() / 86400000) - 3 / 4) + 0.25;
@@ -247,6 +319,33 @@ export default scene => {
     sun.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
     sun.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000);
     sun.name="sun";
+
+    orbit1.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
+    orbit1.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000);
+
+    orbit2.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
+    orbit2.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000);
+
+    orbit3.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
+    orbit3.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000);
+
+    orbit4.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
+    orbit4.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000);
+
+    orbit5.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
+    orbit5.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000);
+
+    orbit6.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
+    orbit6.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000);
+
+    orbit7.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
+    orbit7.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000);
+
+    orbit8.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
+    orbit8.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000);
+
+    orbit9.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
+    orbit9.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000);
 
     sunCloudMesh.position.x = 400 * Math.sin(2 * Math.PI * Date.now() / 31536000000);
     sunCloudMesh.position.z = 400 * Math.cos(2 * Math.PI * Date.now() / 31536000000);
