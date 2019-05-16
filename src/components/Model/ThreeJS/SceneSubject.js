@@ -23,7 +23,7 @@ import neptunePic from '../../../assets/images/neptunemap.jpg';
 import plutoPic from '../../../assets/images/plutomap2k.jpg';
 import plutoBump from '../../../assets/images/plutobump2k.jpg';
 import saturnRingPic from '../../../assets/images/saturnRinger.png';
-import orbitRings from '../../../assets/images/orbitRinger.png';
+import orbitRings from '../../../assets/images/ourPeachLane.png';
 
 export default scene => {
   //earth
@@ -190,7 +190,8 @@ export default scene => {
   let orbitGeo4 = new THREE.RingBufferGeometry( 795, 805, 300 );
   let orbitMat4 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
   orbitMat4.map = new THREE.TextureLoader().load( orbitRings );
-
+  orbitMat4.opacity = 0.9;
+  orbitMat4.transparent = true;
 
   let orbitGeo5 = new THREE.RingBufferGeometry( 995, 1005, 300 );
   let orbitMat5 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
@@ -207,7 +208,7 @@ export default scene => {
   let orbitGeo7 = new THREE.RingBufferGeometry( 1395, 1405, 300 );
   let orbitMat7 = new THREE.MeshPhongMaterial( {side: THREE.DoubleSide} );
   orbitMat7.map = new THREE.TextureLoader().load( orbitRings );
-  orbitMat7.opacity = 0.9;
+  orbitMat7.opacity = 0.5;
   orbitMat7.transparent = true;
 
   let orbitGeo8 = new THREE.RingBufferGeometry( 1695, 1705, 300 );
