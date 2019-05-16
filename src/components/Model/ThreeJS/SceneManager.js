@@ -74,7 +74,7 @@ export default canvas => {
     renderer.render(scene, camera);
   }
 
-  document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+  document.addEventListener( 'dblclick', onDocumentMouseDown, false );
   function onDocumentMouseDown( event ) {
     mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
     mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
