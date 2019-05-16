@@ -37,6 +37,7 @@ These fictional user stories were built to provide behavior-driven guidelines fo
 * The user can view educational content about any selected planet or the sun by clicking the top-right menu (i) icon.
 * The user can see the location of the International Space Station in relation to the earth, appearing as a red orb.
 * Accurate rotational speed for the earth (24h) and moon ( 28 days around the earth )
+* Use Redux to update the information that is displayed depending on the planet your on.
 
 ## Technologies Used
 
@@ -45,6 +46,7 @@ These fictional user stories were built to provide behavior-driven guidelines fo
   * React
 * (npx create-react-app)
 * Babel
+* Redux
 * Webpack
 * ESLint
 
