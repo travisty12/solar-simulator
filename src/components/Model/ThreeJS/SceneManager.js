@@ -30,7 +30,8 @@ export function updateCamera(arg, sceneInit = scene, cameraInit = camera, contro
 export default canvas => {
   let raycaster = new THREE.Raycaster();
   let mouse = new THREE.Vector2();
-  camera.position.z =5;
+  camera.position.x = 600 * Math.sin(2 * Math.PI * Date.now() / 31536000000)
+  camera.position.z = 600 * Math.cos(2 * Math.PI * Date.now() / 31536000000) + 3;
   renderer.setSize( window.innerWidth, window.innerHeight );
   document.body.appendChild ( renderer.domElement );
 
