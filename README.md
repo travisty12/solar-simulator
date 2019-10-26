@@ -3,6 +3,8 @@
 
 By: Travis Toal, Robbie Kruszynski, Ryan McLean, Slater Smith, and Ian Cook Westgate
 
+View the site live at [Icarus Lives](https://www.icarus-lives.com/#/)
+
 ## Description
 
 The Solar System Simulator was designed with two goals in mind.
