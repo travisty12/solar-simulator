@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import SceneSubject from './SceneSubject';
 import GeneralLights from './GeneralLights';
-import OrbitControls from 'three-orbitcontrols'
+import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {store} from '../../../index';
 import {updatePlanet} from '../../../actions';
 
