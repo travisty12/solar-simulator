@@ -3,6 +3,8 @@
 
 By: Travis Toal, Robbie Kruszynski, Ryan McLean, Slater Smith, and Ian Cook Westgate
 
+View the site live at [Icarus Lives](https://www.icarus-lives.com/#/)
+
 ## Description
 
 The Solar System Simulator was designed with two goals in mind.
@@ -50,7 +52,7 @@ The Solar System Simulator was designed with two goals in mind.
 
 ## Support and contact details
 
-_Email travisty12@gmail.com, rmclean@gmail.com, robbiekruszynski@gmail.com or with any questions._
+_Email travisty12@gmail.com, rmcleandev@gmail.com, robbiekruszynski@gmail.com or with any questions._
 
 ## License
 
