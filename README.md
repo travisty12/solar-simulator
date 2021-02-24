@@ -1,7 +1,7 @@
 # Solar Simulator
 ##### Solar system 3D model built in React utilizing threeJS
 
-By: Travis Toal, Robbie Kruszynski, Ryan McLean, Slater Smith, and Ian Cook Westgate
+By: Travis Scott, Robbie Kruszynski, Ryan McLean, Slater Smith, and Ian Cook Westgate
 
 View the site live at [Icarus Lives](https://www.icarus-lives.com/#/)
 
@@ -58,4 +58,4 @@ _Email travisty12@gmail.com, rmcleandev@gmail.com, robbiekruszynski@gmail.com or
 
 This software is licensed under the MIT license.
 
-Copyright (c) 2019 **Robbie Kruszynski**, **Ryan McLean**, **Travis Toal**
+Copyright (c) 2019 **Robbie Kruszynski**, **Ryan McLean**, **Travis Scott**
